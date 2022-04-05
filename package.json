@@ -1,0 +1,28 @@
+{
+  "name": "team-9-filmoteka",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "homepage": "https://yurilov.github.io/team-9-filmoteka",
+  "scripts": {
+    "dev": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /team-9-filmoteka/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yurilov/team-9-filmoteka.git"
+  },
+  "keywords": [],
+  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goitacademy/parcel-project-template/issues"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-plugin-nuke-dist": "^1.0.1",
+    "posthtml-include": "^1.6.2",
+    "sass": "^1.32.8"
+  }
+}
