@@ -1,14 +1,20 @@
 <header class="header-home">
-    <div class="container">
+    <div class="container header-flex">
         <nav class="navigation">
-            <!-- <img src="../images/svg/film.svg" width="20px" height="20px" alt=""> -->
-            <h1>Filmoteka</h1>
+            <!-- <a href="#" class="logo">
+                <svg class="contact-icon" width="20" height="20">
+                    <use href="../images/svg/sprite.svg#icon-film"></use>
+                </svg>
+            </a> -->
+            <h1 class="site-title">Filmoteka</h1>
             <ul class="nav-buttons">
                 <button class="header-nav-btn">home</button>
                 <button class="header-nav-btn">my library</button>
             </ul>
         </nav>
-        <input type="text">
-        <p>Search result not successful. Enter the correct movie name and</p>
+        <div class="search-block">
+            <input type="text" class="input" placeholder="Поиск фильмов">
+            <p class="input-mistake">Search result not successful. Enter the correct movie name and</p>
+        </div>
     </div>
 </header>
