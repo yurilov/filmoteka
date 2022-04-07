@@ -1,0 +1,34 @@
+body {
+    background-color: $whiteColor;
+    color: $blackColor;
+    font-family: $mainFont;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 320px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    @media screen and (min-width: $mobile) and (max-width: ($tablet - 1px)){
+        width: $mobile;
+        
+    }
+
+    @media screen and (min-width: $tablet) {
+        width: $tablet;
+        padding-left: 76px;
+        padding-right: 76px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        width: $desktop;
+        padding-left: 71px;
+        padding-right: 71px;
+    }
+}
+
+
+
+
