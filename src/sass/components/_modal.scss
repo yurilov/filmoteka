@@ -9,14 +9,15 @@
   backdrop-filter: saturate(180%) blur(10px);
   overflow-y: scroll;
   opacity: 1;
-  z-index: 999;
+  z-index: 300;
   padding: 20px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &.is-hidden {
     opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
   }
 }
 
@@ -193,12 +194,16 @@
 
 .movie__modal-btn-box {
   display: flex;
-  justify-content: center;
+  justify-content: start;
 }
 
 .modal__movie-btn {
   width: 112px;
   height: 44px;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-color: $blackColor;
+  border-radius: 5px;
   cursor: pointer;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
