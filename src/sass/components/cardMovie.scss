@@ -1,0 +1,32 @@
+.movie-card{
+    flex-basis: calc(100%/3 - 32px);
+    
+}
+.movie-card_img{
+    height: 449px;
+    border-radius: 5px;
+    background-color: gray;
+}
+
+.movie_title{
+    @include font(12px, 14px);
+}
+
+.movie_text{
+    display: flex;
+    margin-top: 5px;
+    color:$orangeColor ;
+    @include font(12px,14px);
+}
+
+.movie_genre{
+    padding-right: 5px;
+    border-color:$orangeColor;
+    border-right: 1px;
+       
+}
+
+.movie-date{
+    padding-left: 5px;
+    
+}
