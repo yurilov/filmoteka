@@ -5,18 +5,18 @@
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.25);
   backdrop-filter: saturate(180%) blur(10px);
   overflow-y: scroll;
   opacity: 1;
-  z-index: 300;
+  z-index: 999;
   padding: 20px;
-  transition: $timingFunction;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &.is-hidden {
     opacity: 0;
-    // visibility: hidden;
-    // pointer-events: none;
+    visibility: hidden;
+    pointer-events: none;
   }
 }
 
@@ -30,7 +30,7 @@
   margin-left: auto;
   background-color: $whiteColor;
   transform: scale(1);
-  transition: $timingFunction;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 
@@ -42,6 +42,7 @@
     display: block;
     margin: 0 auto;
   }
+
   @media screen and (min-width: $tablet) {
     position: relative;
     width: 618px;
@@ -140,16 +141,108 @@
     width: 36px;
     height: 14px;
 
-    @include font(12px, 1.17, 500, 0.04em);
+    @include font(12px, 1.17);
 
     border-radius: 5px;
-    background-color: #f7f7f7;
+    background-color: $bgColor;
     margin-top: -1px;
   }
 
-  & > span: :first-child{
+  & > span:first-child {
     color: $whiteColor;
     background-color: $orangeColor;
   }
 }
 
+.movie__info-wrap-item-name {
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.movie__info-genre-list {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 132px;
+
+  @media screen and (min-width: $tablet) {
+    max-width: 156px;
+  }
+  @media screen and (min-width: $desktop) {
+    max-width: 244px;
+  }
+}
+
+.movie__info-genre-item {
+  &:last-child > span {
+    display: none;
+  }
+}
+
+.about-movie-title {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.movie-description {
+  margin: 0;
+  margin-bottom: 21px;
+  overflow-y: scroll;
+
+  @include font(12px, 1.67);
+}
+
+.movie__modal-btn-box {
+  display: flex;
+  justify-content: center;
+}
+
+.modal__movie-btn {
+  width: 112px;
+  height: 44px;
+  cursor: pointer;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:first-child {
+    margin-right: 15px;
+  }
+
+  &:hover {
+    color: $whiteColor;
+    background-color: $orangeColor;
+    border-color: $orangeColor;
+  }
+  &.added-to-storage {
+    background: $orangeColor;
+    color: $whiteColor;
+    border: 1px solid $orangeColor;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 125px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 136px;
+  }
+}
+
+.close-modal-btn {
+  content: '';
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.close-modal-icon {
+  font-size: 30px;
+  color: $blackColor;
+}
