@@ -1,0 +1,53 @@
+.footer {
+    color: var(--footerTextColor);
+    background-color: var(--bgColor);
+}
+
+.footer__container {
+    @include flexcenter;
+    flex-wrap: wrap;
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.14;
+
+    padding: 24px 35px;
+
+    @media screen and (min-width: 768px) {
+        padding: 26px 0;
+        font-size: 16px;
+        line-height: 1.17;
+    }
+}
+
+.footer__text {
+    text-align: center;
+    @include flexcenter;
+}
+
+.footer__link {
+    display: inline-block;
+    margin: 0 5px;
+
+    transition: transform linear 250ms;
+
+    &:hover,
+    &:focus {
+        transform: scale(1.2);
+        ;
+    }
+}
+
+.footer__icon-github {
+    fill: #000000;
+}
+
+.footer__text-btn {
+    @media screen and (max-width: 767px) {
+        margin-top: 10px;
+    }
+
+    @media screen and (min-width: 768px) {
+        margin-left: 5px;
+    }
+}
