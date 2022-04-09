@@ -1,10 +1,6 @@
-body {
-    background-color: $whiteColor;
-    color: $blackColor;
-    font-family: $mainFont;
-}
 
-.container {
+.gallery {
+
     margin-left: auto;
     margin-right: auto;
     min-width: 320px;
@@ -12,8 +8,7 @@ body {
     padding-right: 20px;
 
     @media screen and (min-width: $mobile) and (max-width: ($tablet - 1px)){
-        width: $mobile;
-        
+        width: $mobile; 
     }
 
     @media screen and (min-width: $tablet) {
@@ -23,12 +18,11 @@ body {
     }
 
     @media screen and (min-width: $desktop) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         width: $desktop;
         padding-left: 71px;
         padding-right: 71px;
     }
 }
-
-
-
-
