@@ -2,9 +2,9 @@
     padding: 20px;
     top: 250px;
     width:280px;
-    height: 441px;
+    // height: 441px;
     @media screen and (min-width: $mobile){
-        margin: 20px;
+       // margin: 20px;
         width: $mobile; 
     }
 
@@ -13,8 +13,9 @@
         height: 495px;
     }
     @media screen and (min-width: 1024px) {
-        width: 309px;
-    }
+       width: 309px;
+       height: 441px;
+    } 
 }
 
 .movie-card_img{
