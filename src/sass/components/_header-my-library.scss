@@ -99,6 +99,7 @@
     border: none;
     background: transparent;
     padding: 0;
+    position: relative;
 }
 
 .header-buttons{
@@ -133,5 +134,14 @@
 .header-library-btn:not(:last-child){
     margin-right: 20px;
 }
-
-.site-title{}
+.current::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: $orangeColor;
+    display: block;
+    bottom: -2px;
+}
+/* .site-title{} */
