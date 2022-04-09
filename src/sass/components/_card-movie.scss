@@ -4,6 +4,7 @@
     width:280px;
     height: 441px;
     @media screen and (min-width: $mobile){
+        margin: 20px;
         width: $mobile; 
     }
 
@@ -34,7 +35,6 @@
 
 .movie_title{
     text-transform: uppercase;
-    margin-top: 10px;
     @include font(12px, 14px);
     border: 1px;
 }
