@@ -138,16 +138,13 @@
   }
 }
 
-.vote-slash {
-}
-
 .movie__info-wrap-item-vote {
   display: flex;
+  align-items: center;
+  justify-content: center;
 
   & > span {
     display: flex;
-    align-items: center;
-    justify-content: center;
     width: 36px;
     height: 14px;
 
@@ -256,7 +253,15 @@
   cursor: pointer;
 }
 
-.close-modal-icon {
-  font-size: 30px;
+// .close-modal-icon {
+//   font-size: 30px;
+//   color: $blackColor;
+// }
+
+.material-icons {
   color: $blackColor;
+
+  &:hover {
+    color: $orangeColor;
+  }
 }
