@@ -23,6 +23,9 @@ body {
     }
 
     @media screen and (min-width: $desktop) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         width: $desktop;
         padding-left: 71px;
         padding-right: 71px;
