@@ -14,9 +14,8 @@
     @media screen and (min-width: $tablet) {
         display: flex;
         flex-wrap: wrap;
-        position: absolute;
         width: $tablet;
-        padding-right: 76px;
+        padding-left: 76px;
     }
 
     @media screen and (min-width: $desktop) {
