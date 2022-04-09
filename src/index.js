@@ -4,6 +4,7 @@ import { fetchSearchByKeyword } from './js/API/searchByKeyword';
 import { fetchTrending } from './js/API/searchByKeyword';
 import { renderCardMovie } from './js/render-card';
 import { refs } from './js/getRefs';
+import './js/clickingLogo';
 
 const movie = fetchTrending().then(movie => {
   console.log(movie);
