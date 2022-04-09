@@ -1,4 +1,4 @@
-export const renderCardMovie = (data, date) => {
+export const renderCardMovie = (data,arrGenres,date) => {
   const wrapper = document.createElement('div');
   
   wrapper.innerHTML = `
@@ -10,7 +10,7 @@ export const renderCardMovie = (data, date) => {
         </p>
         <div class="movie_text">
             <p class="movie_genre">
-            ${data.genre_ids}
+            ${arrGenres}
             </p>
             <p class="movie-date">
             ${date}
