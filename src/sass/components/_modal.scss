@@ -11,7 +11,8 @@
   opacity: 1;
   z-index: 300;
   padding: 20px;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @include transition(transform);
+  @include transition(opacity);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,9 +79,14 @@
 
 .movie__img {
   margin-left: 50%;
-  margin-top: 64%;
+  margin-top: 62%;
   height: auto;
   transform: translate(-50%, -50%);
+}
+
+.modal-poster {
+  width: 100%;
+  object-fit: cover;
 }
 
 .movie__content-wrap {
@@ -132,6 +138,9 @@
   }
 }
 
+.vote-slash {
+}
+
 .movie__info-wrap-item-vote {
   display: flex;
 
@@ -160,7 +169,7 @@
   text-transform: uppercase;
 }
 
-.movie__info-genre-list {
+.movie__info-list {
   display: flex;
   flex-wrap: wrap;
   max-width: 132px;
@@ -173,7 +182,7 @@
   }
 }
 
-.movie__info-genre-item {
+.movie__info-item {
   &:last-child > span {
     display: none;
   }
