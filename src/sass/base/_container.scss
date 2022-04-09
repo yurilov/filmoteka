@@ -3,7 +3,7 @@
 
     margin-left: auto;
     margin-right: auto;
-    // min-width: 320px;
+    min-width: 320px;
     // padding-left: 20px;
     // padding-right: 20px;
 
@@ -12,8 +12,10 @@
     }
 
     @media screen and (min-width: $tablet) {
+        display: flex;
+        flex-wrap: wrap;
+        position: absolute;
         width: $tablet;
-        padding-left: 76px;
         padding-right: 76px;
     }
 
