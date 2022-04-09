@@ -1,43 +1,18 @@
-.container {
-    margin: 0 auto;
-    padding-top: 0px;
-    @media screen and (min-width: 320px) {
-        width: 320px;
-    }
-    @media screen and (min-width: 768px) {
-        width: 768px;
-    }
-    @media screen and (min-width: 1024px) {
-        width: 1024px;
-    }
-}
-
-.header-flex {
-    display: flex;
-    flex-direction: column;
-}
-
 .header-home {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/header-bg/header-home-bg-mob-1x.jpg);
     width: 100%;
     padding-top: 40px;
     padding-bottom: 44px;
-    padding-left: 20px;
-    padding-right: 20px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
         padding-bottom: 44px;
-        padding-left: 32px;
-        padding-right: 32px;
         background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/header-bg/header-home-bg-mob-2x.jpg);
     }
     @media screen and (min-width: 768px) {
         padding-top: 47px;
         padding-bottom: 44px;
-        padding-left: 32px;
-        padding-right: 32px;
         background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/header-bg/header-home-bg-tab-1x.jpg);
         @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
             background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/header-bg/header-home-bg-tab-2x.jpg);
@@ -55,7 +30,7 @@
 
 .navigation {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 24px;
     margin-bottom: 50px;
@@ -68,14 +43,16 @@
 }
 
 .logo {
-    width: 20px;
-    height: 20px;
-    list-style: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .header-nav-btn {
-    color: #FFFFFF;
-    font-family: 'Roboto';
+    position: relative;
+    color: $whiteColor;
+    font-family: $mainFont;
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -87,17 +64,11 @@
     border: none;
     background: transparent;
     padding: 0;
+    cursor: pointer;
 }
 
 .nav-buttons {
     display: flex;
-    align-items: center;
-    @media screen and (min-width: 768px) {
-        margin-left: 387px;
-    }
-    @media screen and (min-width: 1024px) {
-        margin-left: 642px;
-    }
 }
 
 .header-nav-btn:not(:last-child) {
@@ -105,36 +76,36 @@
 }
 
 .site-title {
-    // margin-top: 0;
-    color: #FFFFFF;
-    font-family: 'Roboto';
+    color: $whiteColor;
+    font-family: $mainFont;
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
     line-height: 1.16;
     visibility: hidden;
-    // display: flex;
-    // align-items: center;
-    // text-align: center;
+    width: 0;
     @media screen and (min-width: 768px) {
         visibility: visible;
-        // width: 336px;
-        // margin-bottom: 20px;
+        margin-left: 10px;
+        width: auto;
     }
     @media screen and (min-width: 1024px) {
         visibility: visible;
-        // width: 336px;
-        // margin-bottom: 20px;
+        margin-left: 12px;
     }
 }
 
 .search-block {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .input {
+    border: none;
+    text-align: start;
+    color: $whiteColor;
     width: 280px;
     margin-bottom: 16px;
     background-color: transparent;
@@ -145,10 +116,18 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 0.5px solid #FFFFFF;
+    border-bottom: 0.5px solid $whiteColor;
     background: url(../images/svg/search.svg);
     background-repeat: no-repeat;
     background-position: 100% 50%;
+    &::placeholder {
+        color: $whiteColor;
+        font-family: $mainFont;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.14;
+    }
     @media screen and (min-width: 768px) {
         width: 336px;
         margin-bottom: 20px;
@@ -160,7 +139,7 @@
 }
 
 .input-mistake {
-    font-family: 'Roboto';
+    font-family: $mainFont;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -170,4 +149,15 @@
     color: #FF001B;
     margin-top: 0;
     margin-bottom: 0;
+}
+
+.current::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background-color: #FF001B;
+    display: block;
+    bottom: -3px;
 }
