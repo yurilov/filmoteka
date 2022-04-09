@@ -28,7 +28,7 @@ export async function fetchSearchByKeyword(q, page = 1) {
 
 export async function fetchTrending(q, page = 1) {
   try {
-    const response = await axios.get(`trending/all/day?api_key=${API_KEY}&query=${q}&page=${page}`);
+    const response = await axios.get(`trending/movie/day?api_key=${API_KEY}&page=${page}`);
 
     return response.data;
   } catch (e) {
