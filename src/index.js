@@ -5,6 +5,7 @@ import { fetchTrending } from './js/API/searchByKeyword';
 import { renderCardMovie } from './js/render-card';
 import { refs } from './js/getRefs';
 import { creatingAnArrayOfGenres } from './js/creatingAnArrayOfGenres';
+import { myLibraryQueue } from './js/myLibraryQueue';
 
 const movie = fetchTrending().then(movie => {
   const objDataMovie = movie;
