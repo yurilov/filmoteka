@@ -34,6 +34,7 @@
 
 .movie_text{
     display: flex;
+    margin-top: 3px;
     color:$orangeColor ;
     @include font(12px,14px);
 }

@@ -1,23 +1,25 @@
-export const renderCardMovie = (data, date) => {
+export const renderCardMovie = (data, arrGenres, date) => {
   const wrapper = document.createElement('div');
-  
+
   wrapper.innerHTML = `
     <div class="movie-card">
-        <img class="movie-card_img" src="https://image.tmdb.org/t/p/original${data.poster_path}" alt="${data.title}" loading="lazy" />
-    <div class="movie-card_info">
+      <img class="movie-card_img" src="https://image.tmdb.org/t/p/original${
+        data.poster_path
+      }" alt="${data.title}" loading="lazy" />
+      <div class="movie-card_info">
         <p class="movie_title">
-        ${data.original_title}
+            ${data.original_title}
         </p>
         <div class="movie_text">
             <p class="movie_genre">
-            ${data.genre_ids}
+                ${arrGenres.join(', ')}
             </p>
             <p class="movie-date">
-            ${date}
+                ${date}
             </p>
-        </div>
-        
-    </div>
+          </div>
+          
+      </div>
     </div>
   `;
 
