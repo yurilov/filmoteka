@@ -1,5 +1,5 @@
-const headerHome = document.querySelector('.search-block');
-const headerLibrary = document.querySelector('.header-buttons');
+const headerHome = document.querySelector('.header-home');
+const headerLibrary = document.querySelector('.header-library');
 const gallery = document.querySelector('.gallery');
 
 headerLibrary.classList.toggle('visually-hidden');
