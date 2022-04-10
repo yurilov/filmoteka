@@ -83,4 +83,4 @@ var t,o=arguments[3];!function(o,i){"function"==typeof t&&t.amd?t([],function(){
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/handleSearchInput");var e=require("./js/API/searchByKeyword"),r=require("./js/render-card"),s=require("./js/getRefs");const n=(0,e.fetchTrending)().then(e=>{console.log(e);const n=e;console.log(n);const o=n.results;console.log(o);const c=o.map(e=>{let s=e.release_date.slice(0,4);return(0,r.renderCardMovie)(e,s)});s.refs.containerMovies.append(...c)});
 },{"./sass/main.scss":"clu1","./js/handleSearchInput":"gb5X","./js/API/searchByKeyword":"R7BW","./js/render-card":"KpEY","./js/getRefs":"qJUB"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka/src.1f237a51.js.map
+//# sourceMappingURL=/filmoteka/src.58fe84ac.js.map
