@@ -1,0 +1,74 @@
+.footer {
+    color: $footerTextColor;
+    background-color: $bgColor;
+}
+
+.footer__container {
+    @include font(14px, 1.14, 400, 0.04em);
+    flex-wrap: wrap;
+    text-align: center;
+    // font-weight: 400;
+    // font-size: 14px;
+    // line-height: 1.14;
+
+    padding: 28px 35px;
+
+    @media screen and (min-width: 768px) {
+        @include font(16px, 1.17, 400, 0.04em);
+        padding: 28px 0;
+        // font-size: 16px;
+        // line-height: 1.17;
+    }
+}
+
+.footer__text {
+    @include font(14px, 1.14, 400, 0.04em);
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.footer__link {
+    display: inline-block;
+    margin: 0 5px;
+
+   @include transition(transform);
+
+    &:hover,
+    &:focus {
+        transform: scale(1.2);
+    }
+}
+
+.footer__text-btn {
+    @include font(14px, 1.14, 400, 0.04em);
+    @media screen and (max-width: 767px) {
+        margin-top: 10px;
+    }
+
+    @media screen and (min-width: 768px) {
+        margin-left: 5px;
+    }
+}
+.footer__icon-heart {
+    fill: $orangeColor;
+    // margin: 0px 8px;
+}
+
+.footer__btn {
+    text-decoration: underline;
+    @include font(14px, 1.14, 400, 0.04em);
+    font-family: inherit;
+    text-align: center;
+    border: none;
+    color: inherit;
+    background-color: inherit;
+    cursor: pointer;
+
+    @include transition(transform);
+
+    &:hover,
+    &:focus {
+        transform: scale(1.1);
+        color: $secondaryOrangeColor;
+    }
+}
