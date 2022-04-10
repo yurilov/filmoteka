@@ -5,8 +5,12 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  // top: 0;
+  // left: 0;
   top: 0;
+  bottom: 0;
+  right: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.25);
   backdrop-filter: saturate(180%) blur(10px);
@@ -15,7 +19,11 @@
   padding: 20px;
   @include transition(transform);
   @include transition(opacity);
-  overflow-y: scroll;
+  // overflow-y: scroll;
+  // overflow: auto;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 
   &.is-hidden {
     opacity: 0;
@@ -23,13 +31,33 @@
 }
 
 // -------------Modal---------------
+
+.movie-modal-wrap {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 100%;
+  min-height: 100%;
+  margin: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
 .movie {
   display: flex;
   width: 280px;
-  min-height: 700px;
+  max-width: 100%;
+  min-height: 958px;
   padding: 48px 20px 41px 20px;
-  margin-right: auto;
-  margin-left: auto;
+  // position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  // margin-right: auto;
+  // margin-left: auto;
   background-color: $whiteColor;
   overflow-y: scroll;
   transform: scale(1);
@@ -62,7 +90,7 @@
 .movie__image-wrap {
   width: 240px;
   height: 357px;
-  margin-bottom: 30px;
+  // margin-bottom: 30px;
   border-radius: 5px;
   overflow: hidden;
 

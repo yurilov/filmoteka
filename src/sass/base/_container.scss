@@ -1,0 +1,23 @@
+
+.gallery {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 320px;
+
+    @media screen and (min-width: $mobile) and (max-width: ($tablet - 1px)){
+        width: $mobile; 
+    }
+
+    @media screen and (min-width: $tablet) {
+        display: flex;
+        flex-wrap: wrap;
+        width: $tablet;
+    }
+
+    @media screen and (min-width: $desktop) {
+        display: flex;
+        flex-wrap: wrap;
+        width: $desktop;
+        padding-left: 71px;
+    }
+}
