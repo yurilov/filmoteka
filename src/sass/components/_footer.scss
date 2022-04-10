@@ -1,6 +1,6 @@
 .footer {
-    color: var(--footerTextColor);
-    background-color: var(--bgColor);
+    color: $footerTextColor;
+    background-color: $bgColor;
 }
 
 .footer__container {
@@ -31,16 +31,16 @@
     display: inline-block;
     margin: 0 5px;
 
-    transition: transform linear 250ms;
+   @include transition(transform);
 
     &:hover,
     &:focus {
         transform: scale(1.2);
-        ;
     }
 }
 
 .footer__text-btn {
+    @include font(14px, 1.14, 400, 0.04em);
     @media screen and (max-width: 767px) {
         margin-top: 10px;
     }
@@ -50,23 +50,25 @@
     }
 }
 .footer__icon-heart {
-    fill: var(--orangeColor);
-    margin: 0px 8px;
+    fill: $orangeColor;
+    // margin: 0px 8px;
 }
 
 .footer__btn {
     text-decoration: underline;
+    @include font(14px, 1.14, 400, 0.04em);
+    font-family: inherit;
     text-align: center;
     border: none;
     color: inherit;
     background-color: inherit;
     cursor: pointer;
 
-    transition: transform linear 250ms;
+    @include transition(transform);
 
     &:hover,
     &:focus {
         transform: scale(1.1);
-        color: var(__secondaryOrangeColor);
+        color: $secondaryOrangeColor;
     }
 }
