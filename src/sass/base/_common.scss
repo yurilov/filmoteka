@@ -10,14 +10,17 @@ body {
     min-width: 320px;
     padding-left: 20px;
     padding-right: 20px;
+
     @media screen and (min-width: $mobile) and (max-width: ($tablet - 1px)) {
         width: $mobile;
     }
+
     @media screen and (min-width: $tablet) {
         width: $tablet;
         padding-left: 32px;
         padding-right: 32px;
     }
+
     @media screen and (min-width: $desktop) {
         width: $desktop;
         padding-left: 32px;
