@@ -19,11 +19,50 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   </head>
   <body>
-     <include src="./partials/header-home.html"></include>
+    <header class="header-home container">
+      <!-- <div class="container"> -->
+      <nav class="navigation">
+        <a href="./index.html" class="logo">
+          <svg class="contact-icon" width="24" height="24">
+            <use href="/images/svg/sprite.svg#icon-film"></use>
+          </svg>
+          <h1 class="site-title">Filmoteka</h1>
+        </a>
+        <ul class="nav-buttons">
+          <button class="header-nav-btn current">home</button>
+          <button class="header-nav-btn">my library</button>
+        </ul>
+      </nav>
+      <div class="search-block">
+        <input type="text" class="input" placeholder="Поиск фильмов">
+        <p class="input-mistake">Search result not successful. Enter the correct movie name and</p>
+      </div>
+      <div class="header-buttons visually-hidden">
+        <button class="header-library-btn">Watched</button>
+        <button class="header-library-btn">queue</button>
+      </div>
+      <!-- </div> -->
+    </header>
+     <!-- <include src="./partials/header-home.html"></include> -->
      <!-- <include src="./partials/header-my-library.html"></include> -->
-     <div class="gallery"></div>
      <!-- <include src="./partials/modal.html"></include>    -->
-     <include src="./partials/footer.html"></include>
+     <!-- <include src="./partials/footer.html"></include> -->
+    <main>
+      <div class="gallery"></div>
+    </main>
+    <footer class="footer">
+      <div class="footer__container container">
+        <p class="footer__text">&#169; 2022 | All Rights Reserved | Developed with
+        </p>
+        <p class="footer__text-btn">
+          <svg class="footer__icon-heart" width="14" height="13">
+            <use href="./images/svg/sprite.svg#icon-heart"></use>
+          </svg>
+          by
+          <button class="footer__btn" type="button">GoIT Students</button>
+        </p>
+      </div>
+    </footer>
     <script src="./index.js"></script>
   </body>
 </html>
