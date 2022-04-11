@@ -27,6 +27,7 @@
 }
 
 .movie_title{
+    margin-top: 10px;
     text-transform: uppercase;
     @include font(12px, 14px);
     border: 1px;
@@ -37,6 +38,7 @@
     margin-top: 3px;
     color:$orangeColor ;
     @include font(12px,14px);
+    
 }
 
 .movie_genre{
@@ -47,5 +49,4 @@
 
 .movie-date{
     padding-left: 5px;
-    
 }
