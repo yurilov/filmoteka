@@ -7,7 +7,9 @@ import { refs } from './js/getRefs';
 import { creatingAnArrayOfGenres } from './js/creatingAnArrayOfGenres';
 // import './js/clickingLogo';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
-Loading.circle('Loading...');
+Loading.hourglass('Loading...', {
+  svgColor: '#FF6B08',
+});
 
 const movie = fetchTrending().then(movie => {
   const objDataMovie = movie;
