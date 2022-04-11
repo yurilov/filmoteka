@@ -6,6 +6,10 @@ import { renderCardMovie } from './js/render-card';
 import { refs } from './js/getRefs';
 import { creatingAnArrayOfGenres } from './js/creatingAnArrayOfGenres';
 // import './js/clickingLogo';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
+Loading.hourglass('Loading...', {
+  svgColor: '#FF6B08',
+});
 
 const movie = fetchTrending().then(movie => {
   const objDataMovie = movie;
@@ -21,3 +25,7 @@ const movie = fetchTrending().then(movie => {
   });
   refs.containerMovies.append(...movieCard);
 });
+
+setTimeout(() => {
+  Loading.remove();
+}, 1500);
