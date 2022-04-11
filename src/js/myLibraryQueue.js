@@ -5,6 +5,7 @@ function libraryQueue() {
   // функция, которая принимает категорию, по которой мы фильтруем
   // и items - это набор карточек фильма, которые нужно профильтровать
   // то есть содержит ли конкретный item ту категорию, которую мы передали в category
+
   function filter(category, items) {
     items.forEach(item => {
       const isItemFiltered = !item.classList.contains(category);
@@ -17,7 +18,6 @@ function libraryQueue() {
       }
     });
   }
-
   // перебираю коллекцию buttons
   buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -35,5 +35,6 @@ function libraryQueue() {
     };
   });
 }
+
 libraryQueue();
 export { libraryQueue };
