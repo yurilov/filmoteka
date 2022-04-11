@@ -19,7 +19,7 @@ function libraryQueue() {
     if (e.target.nodeName !== 'BUTTON') {
       return;
     }
-    const currentCategory = button.dataset.filter;
+    const currentCategory = e.target.dataset.filter;
     filter(currentCategory, cards);
   }
   wrapper.addEventListener('click', handleClick);
