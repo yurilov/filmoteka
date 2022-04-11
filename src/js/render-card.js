@@ -1,7 +1,6 @@
 export const renderCardMovie = (data, arrGenres, date) => {
   const wrapper = document.createElement('div');
-
-  console.log('DATA FOR RENDERED CARD MOVIE' + JSON.stringify(data));
+  
   wrapper.innerHTML = `
     <div class="movie-card">
       <img class="movie-card_img" src="https://image.tmdb.org/t/p/original${
