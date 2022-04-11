@@ -1,7 +1,7 @@
 function libraryQueue() {
   const buttons = document.querySelectorAll('.button');
   const cards = document.querySelectorAll('.movie-card');
-
+  const wrapper = document.querySelector('.wrapper');
   // функция, которая принимает категорию, по которой мы фильтруем
   // и items - это набор карточек фильма, которые нужно профильтровать
   // то есть содержит ли конкретный item ту категорию, которую мы передали в category
@@ -25,6 +25,13 @@ function libraryQueue() {
       filter(currentCategory, cards);
     });
   });
+  // Event delegation
+  // Вешаем обработчик событий на родительский div с классом "wrapper" (я его добавила),
+  //     и обрабатываем события, которые активируются на дочерних элементах button.
+  function handleClick(e) {
+    console.log('click', e.target);
+  }
+  wrapper.addEventListener('click', handleClick);
 
   //   пробегаемся по карточкам и на свойство ontransitionend вешаем функцию
   cards.forEach(card => {
