@@ -1,6 +1,5 @@
 import './sass/main.scss';
 import './js/handleSearchInput';
-import {fetchSearchMoviesApi} from './js/API/searchApi';
 import { fetchSearchByKeyword } from './js/API/searchByKeyword';
 import { fetchTrending } from './js/API/searchByKeyword';
 import { renderCardMovie } from './js/render-card';
@@ -9,35 +8,29 @@ import { creatingAnArrayOfGenres } from './js/creatingAnArrayOfGenres';
 // import './js/clickingLogo';
 
 
-// const movie = fetchTrending().then(movie => {
-//   const objDataMovie = movie;
+/* const movie = fetchSearchByKeyword().then(movie => {
+  const objDataMovie = movie;
+  const results = objDataMovie.data.results;
+ 
+    const movieCard = results.forEach(result => {
+    console.log('Object.keys(result): ' + Object.keys(result));
+     return renderCardMovie(result, arrGenres, date);
+  });
+   refs.containerMovies.insertAdjacentHTML("beforeend", ...movieCard);
+});
+ */
 
-//   const results = objDataMovie.results;
-//   console.log(results);
-
-//   const movieCard = results.map(result => {
-//     let date = result.release_date.slice(0, 4);
-
-//     const arrGenres = creatingAnArrayOfGenres(result);
-//     return renderCardMovie(result, arrGenres, date);
-//   });
-//   refs.containerMovies.append(...movieCard);
-// });
-
-const movie = fetchSearchMoviesApi().then(movie => {
+const movie = fetchSearchByKeyword().then(movie => {
   const objDataMovie = movie;
   const results = objDataMovie.data.results;
 
-  console.log('RESULTS FROM FETCH SEARCH MOVIES API: ' + JSON.stringify(results));
+  const movieCard = results.forEach(result => {
+    for(let key in Object.keys(results)) {
+     console.log(`${key} => ${JSON.stringify(results[key])}`);
+    }
 
-  for (const [key, value] of Object.entries(results)) {
-    console.log(`KEY: ${JSON.stringify(key)}: VALUE${JSON.stringify(value)}`);
-  }
-  
-  // const movieCard = results.foreach(result => {
-  //   console.log('Object.keys(result): ' + Object.keys(result));
-  //   return renderCardMovie(result, arrGenres, date);
-  // });
-  // refs.containerMovies.append(...movieCard);
-
+    const arrGenres = creatingAnArrayOfGenres(result);
+   // return renderCardMovie(result, arrGenres);
+  });
+  //refs.containerMovies.append(...movieCard);
 });

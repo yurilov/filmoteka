@@ -6,7 +6,7 @@ async function handleSearchInput(e) {
   e.preventDefault();
   const q = e.target.value.trim();
   const data = await loadMovies(q);
-  console.log(data.results);
+  console.log('DATA.RESULTS FROM HANDLE SEARCH INPUT: ' + JSON.stringify(data.results));
 }
 
 refs.searchInputRef.addEventListener('input', debounce(handleSearchInput, 500));
