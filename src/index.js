@@ -36,10 +36,9 @@ import { creatingAnArrayOfGenres } from './js/creatingAnArrayOfGenres';
   refs.containerMovies.append(...movieCard);
 });
  */
-const movie = fetchSearchByKeyword().then(movie => {
+/* const movie = fetchSearchByKeyword().then(movie => {
   const objDataMovie = movie;
   const results = objDataMovie.data.results;
-
   const movieCard = results.forEach(result => {
     for(let key in Object.keys(results)) {
      console.log(`${key} => ${JSON.stringify(results[key])}`);
@@ -47,7 +46,7 @@ const movie = fetchSearchByKeyword().then(movie => {
 
     const arrGenres = creatingAnArrayOfGenres(result);
    return addDataToDOM(result, arrGenres);
-   
+
   });
-  // refs.containerMovies.append(...movieCard);
-});
+  refs.containerMovies.append(...movieCard);
+}); */
