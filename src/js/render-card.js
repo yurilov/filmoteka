@@ -15,7 +15,7 @@ export const renderCardMovie = (data, arrGenres, date) => {
                 ${arrGenres.join(', ')}
             </p>
             <p class="movie-date">
-                ${date}
+                | ${date}
             </p>
           </div>
           

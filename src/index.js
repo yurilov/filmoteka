@@ -24,7 +24,10 @@ const movie = fetchTrending().then(movie => {
     const arrGenres = creatingAnArrayOfGenres(result);
     return renderCardMovie(result, arrGenres, date);
   });
-  refs.containerMovies.append(...movieCard);
+  
+  // refs.containerMovies.append(...movieCard);
+  
+  refs.containerMyLibrary.append(...movieCard);
 });
 
 setTimeout(() => {
