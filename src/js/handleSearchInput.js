@@ -40,24 +40,6 @@ const arrayOfMovieObjects =  [
   },
   {
     "adult": false,
-    "backdrop_path": null,
-    "genre_ids": [
-        878
-    ],
-    "id": 51767,
-    "original_language": "en",
-    "original_title": "Sexual Matrix",
-    "overview": "A professor designing a machine designed to meet the naughtiest fantasies. In order to perfect the discovery, he performed tests on various subjects, aided by his very appealing assistant.",
-    "popularity": 15.112,
-    "poster_path": "/vmhBIPKyYCWlp2PrIIc6EXZlP9Z.jpg",
-    "release_date": "2000-04-01",
-    "title": "Sexual Matrix",
-    "video": false,
-    "vote_average": 7.2,
-    "vote_count": 13
-  },
-  {
-    "adult": false,
     "backdrop_path": "/lBdXACywnLwKUZmZkZ87djDQBeV.jpg",
     "genre_ids": [
         99
