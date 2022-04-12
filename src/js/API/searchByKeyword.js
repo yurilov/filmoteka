@@ -15,7 +15,7 @@ export async function fetchSearchByKeyword(q, page = 1) {
   }
 }
 
-export async function fetchTrending(q, page = 1) {
+export async function fetchTrending(page = 1) {
   try {
     const response = await axios.get(`trending/movie/day?api_key=${API_KEY}&page=${page}`);
 

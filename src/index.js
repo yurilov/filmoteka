@@ -5,6 +5,7 @@ import { fetchTrending } from './js/API/searchByKeyword';
 import { renderCardMovie } from './js/render-card';
 import { refs } from './js/getRefs';
 import { creatingAnArrayOfGenres } from './js/creatingAnArrayOfGenres';
+import { Pagination } from './js/pagination';
 import './js/clickingLogo';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 Loading.hourglass('Loading...', {
