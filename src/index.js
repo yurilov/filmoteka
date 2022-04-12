@@ -5,7 +5,7 @@ import { fetchTrending } from './js/API/searchByKeyword';
 import { renderCardMovie } from './js/render-card';
 import { refs } from './js/getRefs';
 import { creatingAnArrayOfGenres } from './js/creatingAnArrayOfGenres';
-// import './js/clickingLogo';
+import './js/clickingLogo';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 Loading.hourglass('Loading...', {
   svgColor: '#FF6B08',
