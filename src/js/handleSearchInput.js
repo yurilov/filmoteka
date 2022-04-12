@@ -119,12 +119,12 @@ const arrayOfMovieObjects =  [
       "vote_count": 1
   }];
 
-const pictureMarkup = createPictureMarkup(arrayOfMovieObjects);
-refs.containerMovies.insertAdjacentHTML('beforeend', pictureMarkup);
+const moviesMarkup = createMarkup(arrayOfMovieObjects);
+refs.containerMovies.insertAdjacentHTML('beforeend', moviesMarkup);
 
 
-function createPictureMarkup(pictures){
-  const markup =  pictures.map(({ poster_path, title, original_title, date } ) => {
+function createMarkup(results){
+  const markup =  results.map(({ poster_path, title, original_title, date } ) => {
  return `
  <div class="movie-card">
  <img class="movie-card_img" src="https://image.tmdb.org/t/p/original${
@@ -144,5 +144,4 @@ function createPictureMarkup(pictures){
 </div>`
 }).join("");
   return markup;
-
 }
