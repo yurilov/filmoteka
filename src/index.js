@@ -12,6 +12,7 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio';
 Loading.hourglass('Loading...', {
   svgColor: '#FF6B08',
 });
+
 const movie = fetchTrending().then(movie => {
   const objDataMovie = movie;
 
@@ -24,10 +25,10 @@ const movie = fetchTrending().then(movie => {
     const arrGenres = creatingAnArrayOfGenres(result);
     return renderCardMovie(result, arrGenres, date);
   });
-  
-  // refs.containerMovies.append(...movieCard);
-  
-  refs.containerMyLibrary.append(...movieCard);
+
+  refs.moviesContainerRef.append(...movieCard);
+
+  // refs.myLibraryContainerRef.append(...movieCard);
 });
 
 setTimeout(() => {

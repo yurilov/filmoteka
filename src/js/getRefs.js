@@ -1,7 +1,7 @@
 export const refs = {
   searchInputRef: document.querySelector('.input'),
-  containerMovies: document.querySelector('.gallery'),
-  containerMyLibrary:document.querySelector('.gallery-my-library'),
+  moviesContainerRef: document.querySelector('.gallery-home'),
+  myLibraryContainerRef: document.querySelector('.gallery-my-library'),
   headerHome: document.querySelector('.header-home'),
   headerLibrary: document.querySelector('.header-library'),
   jsLibrary: document.querySelector('.header-home .js-library'),
