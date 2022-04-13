@@ -1,15 +1,33 @@
 import { debounce } from 'debounce';
 import { fetchSearchByKeyword } from './API/searchByKeyword';
 import { refs } from './getRefs';
+import {renderCardMovie} from './render-card';
+import { creatingAnArrayOfGenres } from './creatingAnArrayOfGenres';
 
 async function handleSearchInput(e) {
   e.preventDefault();
   const q = e.target.value.trim();
   const data = await loadMovies(q);
   // console.log(data.results);
-  const moviesMarkup = createMarkup(data.results);
-  refs.containerMovies.innerHTML = '';
-  refs.containerMovies.insertAdjacentHTML('beforeend', moviesMarkup);
+ 
+  const movie = fetchSearchByKeyword().then(movie => {
+  // const objectMovie = movie.data.results;
+
+  const objectMovie = movie.results;
+
+  console.log('OBJECT MOVIE: ' + JSON.stringify(objectMovie));
+  
+    const movieCard = objectMovie.map(result => {
+      let date = result.release_date.slice(0, 4);
+
+      console.log('RESULTS MOVIECARD STRINGIFIED: ' + JSON.stringify(result));
+      console.log('RESULTS MOVIECARD: ' + result);
+  
+      const arrGenres = creatingAnArrayOfGenres(result);
+      return renderCardMovie(result, arrGenres, date);
+    });
+    refs.containerMovies.append(...movieCard);
+  });
 }
 
 async function loadMovies(q) {
@@ -18,26 +36,3 @@ async function loadMovies(q) {
 }
 
 refs.searchInputRef.addEventListener('input', debounce(handleSearchInput, 500));
- 
-  function createMarkup(results){
-    const markup =  results.map(({ poster_path, title, original_title, date } ) => {
-   return `
-   <div class="movie-card">
-   <img class="movie-card_img" src="https://image.tmdb.org/t/p/original${
-     poster_path
-   }" alt="${title}" loading="lazy" />
-   <div class="movie-card_info">
-     <p class="movie_title">
-         ${original_title}
-     </p>
-     <div class="movie_text">
-         <p class="movie-date">
-             ${date}
-         </p>
-       </div>
-       
-   </div>
-  </div>`
-  }).join("");
-    return markup;
-  }

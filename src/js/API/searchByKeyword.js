@@ -9,7 +9,7 @@ export async function fetchSearchByKeyword(q, page = 1) {
   try {
     const response = await axios.get(`search/movie?api_key=${API_KEY}&query=${q}&page=${page}`);
 
-    return response;
+    return response.data;
   } catch (e) {
     Notify.failure('Search result not successful. Enter the correct movie name and try again');
   }

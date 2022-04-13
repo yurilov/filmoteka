@@ -11,9 +11,7 @@ export const renderCardMovie = (data, arrGenres, date) => {
             ${data.original_title}
         </p>
         <div class="movie_text">
-            <p class="movie_genre">
-                ${arrGenres.join(', ')}
-            </p>
+          
             <p class="movie-date">
                 ${date}
             </p>
