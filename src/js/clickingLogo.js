@@ -16,8 +16,8 @@ function opensOrCloses(e) {
 
   refs.headerHome.classList.toggle('visually-hidden');
   refs.headerLibrary.classList.toggle('visually-hidden');
-  refs.containerMovies.classList.toggle('visually-hidden');
-  refs.containerMyLibrary.classList.toggle('visually-hidden');
+  refs.moviesContainerRef.classList.toggle('visually-hidden');
+  refs.myLibraryContainerRef.classList.toggle('visually-hidden');
 
   setTimeout(() => {
     Loading.remove();

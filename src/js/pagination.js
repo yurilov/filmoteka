@@ -40,8 +40,8 @@ pagination.on('beforeMove', async evt => {
       const arrGenres = creatingAnArrayOfGenres(result);
       return renderCardMovie(result, arrGenres, date);
     });
-    refs.containerMovies.innerHTML = '';
-    refs.containerMovies.append(...movieCard);
+    refs.moviesContainerRef.innerHTML = '';
+    refs.moviesContainerRef.append(...movieCard);
   });
   window.scrollTo({ top: 0, behavior: 'smooth' });
   Loading.hourglass('Loading...', {
