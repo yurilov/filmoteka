@@ -11,6 +11,8 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio';
 Loading.hourglass('Loading...', {
   svgColor: '#FF6B08',
 });
+import './js/openModal';
+
 const movie = fetchTrending().then(movie => {
   const objDataMovie = movie;
 
