@@ -27,7 +27,9 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
+    "basiclightbox": "^5.0.4",
     "debounce": "^1.2.1",
-    "notiflix": "^3.2.5"
+    "notiflix": "^3.2.5",
+    "nprogress": "^0.2.0"
   }
 }

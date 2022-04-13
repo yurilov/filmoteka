@@ -2,7 +2,7 @@ export const renderCardMovie = (data, arrGenres, date) => {
   const wrapper = document.createElement('div');
 
   wrapper.innerHTML = `
-    <div class="movie-card" data-action="open-modal">
+    <div class="movie-card" data-action="open-modal" data-modal-open>
       <img class="movie-card_img" data-action="open-modal" src="https://image.tmdb.org/t/p/original${
         data.poster_path
       }" alt="${data.title}" loading="lazy" />
