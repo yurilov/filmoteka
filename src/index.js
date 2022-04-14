@@ -1,6 +1,7 @@
 import './sass/main.scss';
 import './js/handleSearchInput';
 import './js/renderHomeGalleryMovie';
+import './js/renderMyLibraryGallery'
 import { Pagination } from './js/pagination';
 // import { myLibraryQueue } from './js/myLibraryQueue';
 import './js/clickingLogo';
