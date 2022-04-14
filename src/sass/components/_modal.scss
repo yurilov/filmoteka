@@ -92,7 +92,7 @@
 .movie__image-wrap {
   width: 240px;
   height: 357px;
-  // margin-bottom: 30px;
+  margin-bottom: 30px;
   border-radius: 5px;
   overflow: hidden;
 
@@ -108,15 +108,18 @@
   }
 }
 
-.movie__img {
-  margin-left: 50%;
-  margin-top: 62%;
-  height: auto;
-  transform: translate(-50%, -50%);
-}
+// попытка img вписать в div чтобы не сильно резало низ картинки
+// .movie__img {
+//   margin-left: 50%;
+//   margin-top: 62%;
+//   height: auto;
+//   transform: translate(-50%, -50%);
+// }
 
 .modal-poster {
-  width: 100%;
+  display: block;
+  max-width: 100%;
+  height: auto;
   object-fit: cover;
 }
 
@@ -132,11 +135,11 @@
 }
 
 .movie__title {
-  @include font(20px, 1.15, 500, 0.04em);
+  @include font(20px, 1.15);
   text-transform: uppercase;
   margin-bottom: 20px;
   @media screen and (min-width: $desktop) {
-    @include font(30px, 1.17, 500, 0.04em);
+    @include font(30px, 1.17);
   }
 }
 
@@ -162,7 +165,8 @@
 
 .movie__info-wrap-item-type {
   width: 108px;
-  color: $footerTextColor;
+  color: $modal-slave-color;
+  @include font(12px, 1.33);
 
   @media screen and (min-width: $desktop) {
     width: 152px;
@@ -178,11 +182,14 @@
     display: flex;
     width: 36px;
     height: 14px;
+    justify-content: center;
+    text-align: center;
 
     @include font(12px, 1.17);
 
     border-radius: 5px;
     background-color: $bgColor;
+    text-transform: uppercase;
     margin-top: -1px;
   }
 
@@ -194,6 +201,14 @@
 
 .movie__info-wrap-item-name {
   display: inline-block;
+  @include font(12px, 1.17);
+  text-transform: uppercase;
+}
+
+.movie__info-wrap-item-popularity {
+  justify-content: center;
+  text-align: center;
+  @include font(12px, 1.17);
   text-transform: uppercase;
 }
 
@@ -201,6 +216,7 @@
   display: flex;
   flex-wrap: wrap;
   max-width: 132px;
+  @include font(12px, 1.17);
 
   @media screen and (min-width: $tablet) {
     max-width: 156px;
@@ -219,6 +235,9 @@
 .about-movie-title {
   margin: 0;
   margin-bottom: 10px;
+  @include font(12px, 1.17);
+  text-transform: uppercase;
+  color: $blackColor;
 }
 
 .movie-description {
@@ -226,6 +245,7 @@
   margin-bottom: 21px;
   @include font(12px, 1.67);
   overflow-y: scroll;
+  color: $blackColor;
 }
 
 .movie__modal-btn-box {
@@ -236,7 +256,7 @@
 .modal__movie-btn {
   width: 112px;
   height: 44px;
-  font-size: 12px;
+  @include font(12px, 1.33);
   text-transform: uppercase;
   border-color: $blackColor;
   border-radius: 5px;
