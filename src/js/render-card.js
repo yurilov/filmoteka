@@ -1,4 +1,4 @@
-export const renderCardMovie = (data, arrGenres, date) => {
+export const renderCardMovie = (data, arrGenres, date, movie_id) => {
   const wrapper = document.createElement('div');
 
   wrapper.innerHTML = `
@@ -22,7 +22,6 @@ export const renderCardMovie = (data, arrGenres, date) => {
       </div>
     </div>
   `;
-
   return wrapper.firstElementChild;
 };
 

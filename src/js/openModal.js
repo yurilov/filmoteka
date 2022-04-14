@@ -1,30 +1,46 @@
 import { renderCardMovie } from '../index';
-import * as basicLightbox from 'basiclightbox';
+/* import * as basicLightbox from 'basiclightbox'; */
+import {settings} from './API/settings'
+
+async function fetchOneMovieInfo(movie_id) {
+    const id = e.tagret.getAttribute('href');
+
+    const url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${apiKey}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return ({
+        ...data,
+        popularity: data.popularity.toFixed(1),
+    });
+}
+
 
 function handleMovieCardClick(event) {
+    
     event.preventDefault();
     if (event.target.dataset.action !== 'open-modal') {
         return;   
     }
     onOpenModal();
-
 }
 
 function onOpenModal() {
     document.querySelector('.backdrop').classList.toggle('is-hidden');
+    fetchOneMovieInfo(movie_id);
+    
 };
 window.addEventListener('click', handleMovieCardClick);
 
 
 const closeBtn = document.querySelector('.close-modal-btn');
-    closeBtn.addEventListener('click', closeModal);
+    closeBtn.addEventListener('click', closeOpenModal);
 
     window.addEventListener('keydown', closeOpenModal);
     
     function closeModal(e) {
     document.removeEventListener('click', closeOpenModal);
     closeModal();
-      }
+    }
 
 
 function closeOpenModal() {
@@ -33,84 +49,22 @@ function closeOpenModal() {
 closeOpenModal();
 
 
-function fetchOneMovieInfo(movie_id) {
-  const url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${apiKey}`;
-  return fetch(url)
-    .then(response => response.json())
-    .then(data => ({
-      ...data,
-      popularity: data.popularity.toFixed(1),
-    }));
-}
-
-
-
-
-/* (() => {
-    const refs = {
-        openModalBtn: document.querySelector("[data-modal-open]"),
-        closeModalBtn: document.querySelector("[data-modal-close]"),
-        modal: document.querySelector("[data-modal]"),
-    };
-    
-    refs.openModalBtn.addEventListener("click", toggleModal);
-    refs.closeModalBtn.addEventListener("click", toggleModal);
-
-    function toggleModal() { refs.modal.classList.toggle('.is-hidden'); }
-})(); */
-
 /* const modalCard = document.querySelector('movie');
-modalCard.innerHTML = `<div class="movie-card" data-action="open-modal">
-      <img class="movie-card_img" data-action="open-modal" src="https://image.tmdb.org/t/p/original${
-        data.poster_path
-}" alt="${data.title}" loading="lazy" />
-      <div class="movie-card_info">
+modalCard.innerHTML = `<a href="{{id}}" class="movie-card link" data-action="open-modal" data-modal-open>    
+    <img class="movie-card_img" data-action="open-modal" src="{{poster_link}}" 
+        alt="{{title}}" loading="lazy" />
+    <div class="movie-card_info">
         <p class="movie_title">
-            ${data.original_title}
+            {{original_title}}
         </p>
         <div class="movie_text">
             <p class="movie_genre">
-                ${arrGenres.join(', ')}
+                {{genres}}
             </p>
             <p class="movie-date">
-                ${date}
+                {{date}}
             </p>
-          </div>
-          
-      </div>
-    </div>`
- */
-/* const cardFilm = document.querySelector('.movie');
+        </div>        
+    </div>    
+</a>` */
 
-cardFilm.addEventListener('click', onOpenModal)
-
-async function fetchOneMovieInfo(movie_id) {
-const url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${apiKey}`;
-return fetch(url)
-    .then(response => response.json())
-    .then(data => ({
-        ...data,
-        popularity: data.popularity.toFixed(1),
-    }));
-};
-*/
-
-/* function showModal() */
-
-/* 
-/* const galleryRef = document.querySelector('.gallery'); */
-
-/* const movieCardRef = document.querySelector(".movie-card")
-
-const modalRef = {
-    openModal: document.querySelector('[data-action="open-modal"]'),
-}; */
-
-/* galleryRef.addEventListener("click", selectMovie); */
- 
-/* movieCardRef.addEventListener("click", selectMovie);
-
-/* function closeModal() {
-    document.querySelector.backdrop.classList.add('is-hidden')
-};
-closeModal(); */
