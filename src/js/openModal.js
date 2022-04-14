@@ -1,8 +1,8 @@
 import { renderCardMovie } from '../index';
-/* import * as basicLightbox from 'basiclightbox'; */
+
 import {settings} from './API/settings'
 
-async function fetchOneMovieInfo(movie_id) {
+/* async function fetchOneMovieInfo(movie_id) {
     const id = e.tagret.getAttribute('href');
 
     const url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${apiKey}`;
@@ -12,7 +12,8 @@ async function fetchOneMovieInfo(movie_id) {
         ...data,
         popularity: data.popularity.toFixed(1),
     });
-}
+} */
+
 
 
 function handleMovieCardClick(event) {
