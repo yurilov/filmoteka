@@ -3,7 +3,7 @@ import { refs } from './getRefs';
 import { fetchFullMovieInfo } from './API/APIRequests';
 import { closeModal, onKeyPress } from './modalEsc';
 import { addToWatched } from './addToWatched';
-import { addLocalData} from './addToWatched'
+
 
 async function handleMovieCardClick(e) {
   e.preventDefault();

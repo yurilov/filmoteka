@@ -8,21 +8,22 @@ export function addToWatched(data) {
     
     function onBtnAddToWatched(evt) {
         evt.preventDefault();
-        const movieWatched = localStorage.setItem(LOCAL_KEY, JSON.stringify(data));
+        btnAddToWatched.textContent = 'Added';
+        btnAddToWatched.removeEventListener('click', onBtnAddToWatched);
+        const dataMovie = addLocalData();
+        console.log(dataMovie);
+        arrayWatchedMovie.push(data);
+        const movieWatched = localStorage.setItem(LOCAL_KEY, JSON.stringify(arrayWatchedMovie));
+        
+        return arrayWatchedMovie;
     }
-
-    const dataMovie = addLocalData();
     
-    console.log(dataMovie);
-    arrayWatchedMovie.push(dataMovie);
-    return console.log(arrayWatchedMovie);
 }
-
 
 function addLocalData() {
   const localData = JSON.parse(localStorage.getItem(LOCAL_KEY));
 
   if (!localData) return [];
-return localData;
+  return localData;
 }
 
