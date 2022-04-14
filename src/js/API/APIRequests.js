@@ -24,3 +24,13 @@ export async function fetchTrending(page = 1) {
     Notify.failure('Search result not successful. Enter the correct movie name and try again');
   }
 }
+
+export async function fetchFullMovieInfo(id) {
+  try {
+    const response = await axios.get(`/movie/${id}?api_key=${API_KEY}`);
+
+    return response.data;
+  } catch (e) {
+    Notify.failure('Search result not successful. Enter the correct movie id and try again');
+  }
+}
