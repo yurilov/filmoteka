@@ -1,0 +1,110 @@
+.theme-switcher {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.checkbox-theme-switcher {
+    opacity: 0;
+    position: absolute;
+
+    &:checked+.label-theme-switcher {
+        background-color: #3e3e42;
+    }
+
+    &:checked+.label-theme-switcher .ball-switcher {
+        transform: translateX(18px);
+    }
+}
+
+.label-theme-switcher {
+    padding: 0 5px;
+    height: 28px;
+    width: 48px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 50px;
+    background-color: $bgColor;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.ball-switcher {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $orangeColor;
+
+    transition: transform 0.2s linear;
+}
+
+// DARK THEME COLORS
+
+body.dark-theme {
+    background: $blackThemeMain;
+    color: $whiteColor !important;
+
+    &.dark-theme .tui-pagination .tui-page-btn {
+        color: $whiteColor !important;
+
+        &:hover {
+            color: $blackColor !important;
+        }
+    }
+
+    &.dark-theme .tui-pagination .tui-ico-ellip,
+    &.dark-theme .tui-pagination .tui-ico-prev,
+    &.dark-theme .tui-pagination .tui-ico-next,
+    &.dark-theme .tui-pagination .tui-ico-last,
+    &.dark-theme .tui-pagination .tui-ico-first {
+        filter: invert(100%);
+    }
+
+    &.dark-theme .tui-pagination .tui-next-is-ellip:hover>.tui-ico-ellip {
+        filter: invert(0%);
+    }
+
+    &.dark-theme .tui-pagination .tui-prev-is-ellip:hover>.tui-ico-ellip {
+        filter: invert(0%);
+    }
+
+    &.dark-theme .tui-pagination .tui-is-selected {
+    color: $blackColor !important;
+    }
+
+    &.dark-theme .tui-pagination .tui-page-btn.tui-prev,
+    &.dark-theme .tui-pagination .tui-page-btn.tui-next,
+    &.dark-theme .tui-pagination .tui-page-btn.tui-last,
+    &.dark-theme .tui-pagination .tui-page-btn.tui-first {
+        background-color: #3e3e42 !important;
+    }
+
+    &.dark-theme .movie {
+        background: $blackThemeSecondary;
+
+        &__info-wrap-item-type {
+            color: $blackThemeText;
+        }
+
+        &__info-wrap-item-vote>span:last-child {
+            color: $blackColor;
+        }
+    }
+
+    &.dark-theme .material-icons {
+        color: $blackThemeText;
+
+        &:hover {
+            color: $orangeColor;
+        }
+    }
+
+    &.dark-theme .footer {
+        color: $whiteColor;
+        background: $blackThemeSecondary;
+    }
+}
