@@ -1,7 +1,7 @@
-import { fetchTrending } from './API/searchByKeyword';
+import { fetchTrending } from './API/APIRequests';
 import { renderCardMovie } from './render-card';
-import { creatingAnArrayOfGenres } from './creatingAnArrayOfGenres';
 import { refs } from './getRefs';
+import { standardizeDataFromAPI } from './standardizeDataFromAPI';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
@@ -34,12 +34,8 @@ pagination.on('beforeMove', async evt => {
   const currentPage = (fetchTrending.page = evt.page);
   const movies = await fetchTrending(currentPage).then(movie => {
     const results = movie.results;
-
-    const movieCard = results.map(result => {
-      let date = result.release_date.slice(0, 4);
-      const arrGenres = creatingAnArrayOfGenres(result);
-      return renderCardMovie(result, arrGenres, date);
-    });
+    const standardizedResults = results.map(result => standardizeDataFromAPI(result));
+    const movieCard = standardizedResults.map(result => renderCardMovie(result));
     refs.moviesContainerRef.innerHTML = '';
     refs.moviesContainerRef.append(...movieCard);
   });

@@ -1,22 +1,16 @@
-const modalWindow = document.querySelector('.modal-one-film');
+import { refs } from './getRefs';
 const body = document.querySelector('body');
-const btn = document.querySelector('[data-modal-close]');
-const wrapper = document.querySelector('.div-wrapper');
 
-function closeModal() {
-  modalWindow.classList.remove('open');
-  wrapper.innerHTML = '';
-  body.classList.remove('content-hidden');
+export function closeModal() {
+  const closeBtn = document.querySelector('.close-modal-btn');
+  closeBtn.removeEventListener('click', closeModal);
+  refs.body.removeEventListener('keydown', onKeyPress);
+
+  refs.backdropRef.classList.add('is-hidden');
+  refs.backdropRef.innerHTML = '';
+  refs.body.classList.remove('content-hidden');
 }
 
-const onKeyPress = event => {
+export const onKeyPress = event => {
   if (event.code === 'Escape') closeModal();
 };
-
-document.addEventListener('keydown', onKeyPress);
-
-const onCloseOnBtn = () => {
-  closeModal();
-};
-
-btn.addEventListener('click', onCloseOnBtn);
