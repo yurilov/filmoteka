@@ -1,19 +1,25 @@
-const headerHome = document.querySelector('.search-block');
-const headerLibrary = document.querySelector('.header-buttons');
-const gallery = document.querySelector('.gallery');
+import { refs } from './getRefs';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
-// headerLibrary.classList.toggle('visually-hidden');
+refs.headerLibrary.classList.toggle('visually-hidden');
 
-const jsLibrary = document.querySelector('.header-home .js-library');
-const jsIcon = document.querySelector('.header-library .js-icon');
-
-jsIcon.addEventListener('click', opensOrCloses);
-jsLibrary.addEventListener('click', opensOrCloses);
+refs.jsIcon.addEventListener('click', opensOrCloses);
+refs.jsHome.addEventListener('click', opensOrCloses);
+refs.jsLibrary.addEventListener('click', opensOrCloses);
 
 function opensOrCloses(e) {
   e.preventDefault();
 
-  headerHome.classList.toggle('visually-hidden');
-  headerLibrary.classList.toggle('visually-hidden');
-  gallery.classList.toggle('visually-hidden');
+  Loading.pulse('Loading...', {
+    svgColor: '#FF6B08',
+  });
+
+  refs.headerHome.classList.toggle('visually-hidden');
+  refs.headerLibrary.classList.toggle('visually-hidden');
+  refs.moviesContainerRef.classList.toggle('visually-hidden');
+  refs.myLibraryContainerRef.classList.toggle('visually-hidden');
+
+  setTimeout(() => {
+    Loading.remove();
+  }, 500);
 }
