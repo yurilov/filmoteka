@@ -13,7 +13,7 @@ export const renderCardMovie = data => {
                 ${data.genres}
             </p>
             <p class="movie-date">
-                | ${data.date}
+                ${data.date}
             </p>
           </div>
           

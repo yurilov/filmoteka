@@ -1,5 +1,4 @@
 export const refs = {
-  btnAddToWatched: document.querySelector("#watchedModalBtn"),
   body: document.querySelector('body'),
   searchInputRef: document.querySelector('.input'),
   galleryRef: document.querySelector('.gallery__container'),

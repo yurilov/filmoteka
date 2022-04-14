@@ -29,14 +29,14 @@ export function renderMovieModal(data) {
             <li class="movie__info-wrap-item">
                 <p class="movie__info-wrap-item-type">Genre</p>
                 <ul class="movie__info-list list">
-                <li class="movie__info-item">${data.genres[0].name}</li>
+                    <li class="movie__info-item">${data.genres[0].name}</li>
                 </ul>
             </li>
             </ul>
         </div>
         <p class="about-movie-title">About</p>
         <p class="movie-description">
-        ${data.overview}
+            ${data.overview}
         </p>
         <div class="movie__modal-btn-box">
             <button type="button" class="button modal__movie-btn" id="watchedModalBtn">
