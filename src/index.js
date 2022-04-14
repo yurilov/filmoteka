@@ -1,5 +1,6 @@
 import './sass/main.scss';
 import './js/handleSearchInput';
+import './js/theme-switcher'
 import './js/renderHomeGalleryMovie';
 import './js/renderMyLibraryGallery';
 import './js/openModal';

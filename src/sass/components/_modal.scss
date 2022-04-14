@@ -290,6 +290,7 @@
 
 .material-icons {
   color: $blackColor;
+  @include transition(all);
 
   &:hover {
     color: $orangeColor;
