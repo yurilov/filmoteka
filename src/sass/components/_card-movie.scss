@@ -1,11 +1,7 @@
 .movie-card {
-    // padding: 20px;
-    // top: 250px;
     color: inherit;
         
     @media screen and (min-width: $mobile){
-        // width: $mobile; 
-        margin-top: 20px;
         min-width:280px;
     }
 
