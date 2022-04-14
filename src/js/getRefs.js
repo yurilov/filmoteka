@@ -10,7 +10,7 @@ export const refs = {
   jsHome: document.querySelector('.header-library .js-home'),
   jsIcon: document.querySelector('.header-library .js-icon'),
   backdropRef: document.querySelector('.backdrop'),
-  currentPage: document.querySelector('.current-page'),
-  prevPage: document.querySelector('.prev-page'),
-  nextPage: document.querySelector('.next-page'),
+  // currentPage: document.querySelector('.current-page'),
+  // prevPage: document.querySelector('.prev-page'),
+  // nextPage: document.querySelector('.next-page'),
 };
