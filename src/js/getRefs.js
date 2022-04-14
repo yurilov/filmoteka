@@ -13,4 +13,5 @@ export const refs = {
   currentPage: document.querySelector('.current-page'),
   prevPage: document.querySelector('.prev-page'),
   nextPage: document.querySelector('.next-page'),
+  
 };
