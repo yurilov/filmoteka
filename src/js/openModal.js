@@ -3,6 +3,7 @@ import { refs } from './getRefs';
 import { fetchFullMovieInfo } from './API/APIRequests';
 import { closeModal, onKeyPress } from './modalEsc';
 import { addToWatched } from './addToWatched';
+import {addToQueued} from './addToQueued';
 
 
 async function handleMovieCardClick(e) {
@@ -20,7 +21,7 @@ async function handleMovieCardClick(e) {
   refs.backdropRef.append(modalMarkup);
   addEventListenerToModal(e);
   addToWatched(data);
-  
+  addToQueued(data);
 }
 
 
