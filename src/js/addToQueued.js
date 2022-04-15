@@ -8,7 +8,6 @@ export function addToQueued(data) {
     queueModalBtn.addEventListener("click", addToQueuedLocalStorage);
 
     function addToQueuedLocalStorage(){
-   // const queuedLocalStorage = localStorage.setItem("movieQueued", JSON.stringify(arrayOfQueued))
     const queuedLocalStorage = localStorage.setItem("movieQueued", JSON.stringify(data))
     console.log('queuedLocalStorage: ', queuedLocalStorage);
     console.log('arrayOfQueued: ' + arrayOfQueued);
@@ -17,6 +16,7 @@ export function addToQueued(data) {
     if(existingEntries == null) existingEntries = [];
 
     console.log('EXISTING ENTRIES: ' + JSON.stringify(existingEntries));
-    QUEUE_STORAGE.push(arrayOfQueued);
+    // QUEUE_STORAGE.push(arrayOfQueued);
+    console.log(QUEUE_STORAGE.push(arrayOfQueued));
  }
 }
