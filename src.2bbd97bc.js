@@ -116,4 +116,4 @@ var t;!function(e,n){"object"==typeof exports&&"object"==typeof module?module.ex
 },{"./getRefs":"qJUB","notiflix/build/notiflix-loading-aio":"FqPt"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/handleSearchInput"),require("./js/theme-switcher"),require("./js/renderHomeGalleryMovie"),require("./js/renderMyLibraryGallery"),require("./js/openModal");var e=require("./js/pagination");require("./js/clickingLogo");var r=require("notiflix/build/notiflix-loading-aio");r.Loading.hourglass("Loading...",{svgColor:"#FF6B08"}),setTimeout(()=>{r.Loading.remove()},1500);
 },{"./sass/main.scss":"clu1","./js/handleSearchInput":"gb5X","./js/theme-switcher":"keXy","./js/renderHomeGalleryMovie":"BMdG","./js/renderMyLibraryGallery":"xuBv","./js/openModal":"ItER","./js/pagination":"o8lo","./js/clickingLogo":"ZwFx","notiflix/build/notiflix-loading-aio":"FqPt"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka/src.b21cd838.js.map
+//# sourceMappingURL=/filmoteka/src.2bbd97bc.js.map
