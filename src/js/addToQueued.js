@@ -10,7 +10,11 @@ export function addToQueued(data) {
        
         arrayOfQueued.push(data);
         queueModalBtn.textContent = 'ADDED TO QUEUED';
-
+        removeEventListener();
         localStorage.setItem('movieQueued', JSON.stringify(arrayOfQueued));
+    }
+
+    function removeEventListener(){
+        queueModalBtn.removeEventListener('click', addToQueuedLocalStorage);
     }
 }
