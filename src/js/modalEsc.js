@@ -2,7 +2,7 @@ import { refs } from './getRefs';
 const body = document.querySelector('body');
 
 export function closeModal() {
-  const closeBtn = document.querySelector('.close-modal-btn');
+  const closeBtn = document.querySelector('.close-modal-btn, .backdrop');
   closeBtn.removeEventListener('click', closeModal);
   refs.body.removeEventListener('keydown', onKeyPress);
 

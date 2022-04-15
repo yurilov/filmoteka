@@ -30,7 +30,7 @@ function openModal() {
 }
 
 function addEventListenerToModal(e) {
-  const closeBtn = document.querySelector('.close-modal-btn');
+  const closeBtn = document.querySelector('.close-modal-btn, .backdrop');
   closeBtn.addEventListener('click', closeModal);
   refs.body.addEventListener('keydown', onKeyPress);
 }
