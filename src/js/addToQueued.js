@@ -16,12 +16,14 @@ export function addToQueued(data) {
       const queuedLocalStorageIterator = arrayOfObjects.forEach(result => {
             for(let key in Object.keys(arrayOfObjects)) {
             console.log(`ITERATOR INSIDE ${key} => ${JSON.stringify(arrayOfObjects[key])}`);
+           
+           const {id} = arrayOfObjects[key];
+            alert(`ID:${id}`)
 
-
-            const findId = arrayOfQueued.find(id => id === 760104)
-            if(localStorage.getItem('movieQueued') === findId) {
-                alert(`BINGO`)
-            }
+            // const findId = arrayOfQueued.find(id => id === 760104)
+            // if(localStorage.getItem('movieQueued') === arrayOfObjects[key]) {
+            //     alert(`BINGO`)
+            // }
         }})
     
         removeEventListener();
