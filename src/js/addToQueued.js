@@ -17,10 +17,12 @@ export function addToQueued(data) {
             for(let key in Object.keys(arrayOfObjects)) {
             console.log(`ITERATOR INSIDE ${key} => ${JSON.stringify(arrayOfObjects[key])}`);
 
-            let x = sessionStorage.getItem("movieQueued");
-            document.getElementById("queueModalBtn").innerHTML = x;
-            
-        }});
+
+            const findId = arrayOfQueued.find(id => id === 760104)
+            if(localStorage.getItem('movieQueued') === findId) {
+                alert(`BINGO`)
+            }
+        }})
     
         removeEventListener();
         localStorage.setItem('movieQueued', JSON.stringify(arrayOfQueued));
