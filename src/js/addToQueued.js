@@ -1,19 +1,30 @@
-const arrayOfQueued = [];
-const QUEUE_STORAGE = [];
+let arrayOfQueued = [];
+
 export function addToQueued(data) {
-    
     const queueModalBtn = document.querySelector('#queueModalBtn');
     queueModalBtn.addEventListener("click", addToQueuedLocalStorage);
-
+    
     function addToQueuedLocalStorage(){
-    const queuedLocalStorage = localStorage.setItem("movieQueued", JSON.stringify(data))
-    console.log('queuedLocalStorage: ', queuedLocalStorage);
-   
-    let existingEntries = JSON.parse(localStorage.getItem("movieQueued"));
-    if(existingEntries == null) existingEntries = [];
+        // let receiveddata = JSON.stringify(data);
+        // arrayOfQueued.push(receiveddata);
+    
+        // localStorage.setItem('movieQueued', arrayOfQueued);
 
-    console.log('EXISTING ENTRIES: ' + JSON.stringify(existingEntries));
-     return console.log('PUSHED: ' + QUEUE_STORAGE.push(arrayOfQueued));
-    // return QUEUE_STORAGE.push(arrayOfQueued);
- }
+        // let savedQueuedMovies = JSON.parse(localStorage.getItem('movieQueued'));
+        // if( savedQueuedMovies == null)  savedQueuedMovies = [];
+
+        // queueModalBtn.textContent = 'ADDED TO QUEUED';
+
+        // console.log('TYPEOF ARRAY OF QUEUED: ', typeof arrayOfQueued);
+        // return arrayOfQueued;
+
+        // Parse the serialized data back into an aray of objects
+        arrayOfQueued = JSON.parse(localStorage.getItem('movieQueued')) || [];
+        // Push the new data (whether it be an object or anything else) onto the array
+        arrayOfQueued.push(data);
+        // Alert the array value
+        alert(arrayOfQueued);  // Should be something like [Object array]
+        // Re-serialize the array back into a string and store it in localStorage
+        localStorage.setItem('movieQueued', JSON.stringify(arrayOfQueued));
+    }
 }
