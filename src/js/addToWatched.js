@@ -1,23 +1,37 @@
 const LOCAL_KEY = 'movieWatched';
-const arrayWatchedMovie = [];
 
 export function addToWatched(data) {
-    const btnAddToWatched = document.querySelector('#watchedModalBtn');
-    
-    btnAddToWatched.addEventListener("click", onBtnAddToWatched);
-    
-    function onBtnAddToWatched(evt) {
-        evt.preventDefault();
-        btnAddToWatched.textContent = 'Added';
-        btnAddToWatched.removeEventListener('click', onBtnAddToWatched);
-        const dataMovie = addLocalData();
-        console.log(dataMovie);
-        arrayWatchedMovie.push(data);
-        const movieWatched = localStorage.setItem(LOCAL_KEY, JSON.stringify(arrayWatchedMovie));
-        
-        return arrayWatchedMovie;
-    }
-    
+  const btnAddToWatched = document.querySelector('#watchedModalBtn');
+  const arrayWatchedMovie = addLocalData();
+  const id = data.id;
+  const isMovieInLocalData = arrayWatchedMovie.find(movie => movie.id === id);
+  if (!isMovieInLocalData) {
+    btnAddToWatched.addEventListener('click', onBtnAddToWatched);
+  }
+  if (isMovieInLocalData) {
+    btnAddToWatched.textContent = 'Delete from watched';
+    btnAddToWatched.addEventListener('click', onDeleteFromWatched);
+  }
+
+  function onBtnAddToWatched(evt) {
+    evt.preventDefault();
+    btnAddToWatched.textContent = 'Delete from watched';
+    const watchedMovies = addLocalData();
+    watchedMovies.push(data);
+    const movieWatched = localStorage.setItem(LOCAL_KEY, JSON.stringify(watchedMovies));
+    btnAddToWatched.removeEventListener('click', onBtnAddToWatched);
+    btnAddToWatched.addEventListener('click', onDeleteFromWatched);
+    console.log(watchedMovies);
+  }
+
+  function onDeleteFromWatched(evt) {
+    evt.preventDefault();
+    btnAddToWatched.textContent = 'Add to watched';
+    const filteredMoviesArray = arrayWatchedMovie.filter(movie => movie.id !== id);
+    localStorage.setItem(LOCAL_KEY, JSON.stringify(filteredMoviesArray));
+    btnAddToWatched.removeEventListener('click', onDeleteFromWatched);
+    btnAddToWatched.addEventListener('click', onBtnAddToWatched);
+  }
 }
 
 function addLocalData() {
@@ -26,4 +40,3 @@ function addLocalData() {
   if (!localData) return [];
   return localData;
 }
-
