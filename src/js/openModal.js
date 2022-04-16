@@ -20,7 +20,7 @@ async function handleMovieCardClick(e) {
   refs.backdropRef.append(modalMarkup);
   addEventListenerToModal(e);
   addToWatched(data);
-  
+    
 }
 
 
