@@ -13,26 +13,11 @@ export function addToQueued(data) {
 
        const queuedLocalStorageIterator = arrayOfQueued.forEach(result => {
 
-          // localStorage.clear('movieQueued');
-          // localStorage.clear();
-        //  localStorage.removeItem("movieQueued");
-
-
           for(let key in Object.keys(arrayOfQueued)) {
-            console.log(`ITERATOR INSIDE ${key} => ${JSON.stringify(arrayOfQueued[key])}`);
+          console.log(`ITERATOR INSIDE ${key} => ${JSON.stringify(arrayOfQueued[key])}`);
            
-           const {id: movieId} = arrayOfQueued[key];
-          //  alert(`ID:${id}`)
+          // const {id: movieId} = arrayOfQueued[key];
 
-          console.log('MOVIE ID: ' + movieId);
-          console.log('ARRAY OF QUEUED: ' + arrayOfQueued[key]);
-
-           // console.log(`arrayOfQueued.find(id => id === id)`+ JSON.stringify(arrayOfQueued.find(id => id === movieId)))
-
-            // const findId = arrayOfQueued.find(id => id === 760104)
-            // if(localStorage.getItem('movieQueued') === data[key]) {
-            //     alert(`BINGO`)
-            // }
         }})
     
         removeEventListener();
