@@ -3,7 +3,7 @@ import { fetchSearchByKeyword } from './API/APIRequests';
 import { refs } from './getRefs';
 import { standardizeDataFromAPI } from './standardizeDataFromAPI';
 // import movieCard from './templates/movieCard.hbs';
-import { renderCardMovie } from './render-card';
+import { renderCardMovie } from './renderMovieCard';
 
 async function handleSearchInput(e) {
   e.preventDefault();
