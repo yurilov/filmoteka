@@ -61,7 +61,7 @@ function renderQueueFilms() {
   const savedData = localStorage.getItem('movieQueued');
   const parsedData = JSON.parse(savedData);
   moviesContainerRef.innerHTML = '';
-  const markup = mainMovieTemplate(parsedData);
+  const markup = renderCardMovie(parsedData);
   moviesContainerRef.insertAdjacentHTML('beforeend', markup);
 }
 
