@@ -1,5 +1,3 @@
-import { addToQueued } from './addToQueued';
-
 function libraryQueue() {
   const buttons = document.querySelectorAll('.button');
   const cards = document.querySelectorAll('.movie-card');
@@ -53,21 +51,18 @@ function filter(category, items) {
   });
 }
 
-// export function getQueue() {
-//   showLoader();
-//   let arrayOfStrings = JSON.parse(localStorage.getItem('movieQueued'));
-//   if (arrayOfStrings === null || arrayOfStrings.length === 0) {
-//     hideLoader();
-//     queueEmptyHandler();
-//     return;
-//   }
-//   renderFromLocalStorage(arrayOfStrings);
-//   hideLoader();
-//   btnQueue.classList.add('btn-active-page');
-//   btnWatched.classList.remove('btn-active-page');
-// }
-
-const addToQueued = new addToQueued();
-const queueStore = addToQueued.addToQueuedLocalStorage();
 // libraryQueue();
 export { libraryQueue };
+
+const buttonQueue = document.querySelector('.library-button__queue');
+buttonQueue.addEventListener('click', renderQueueFilms);
+
+function renderQueueFilms() {
+  const savedData = localStorage.getItem('movieQueued');
+  const parsedData = JSON.parse(savedData);
+  moviesContainerRef.innerHTML = '';
+  const markup = mainMovieTemplate(parsedData);
+  moviesContainerRef.insertAdjacentHTML('beforeend', markup);
+}
+
+export { renderQueueFilms };
