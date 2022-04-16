@@ -16,11 +16,13 @@ export function renderMovieModal(data) {
             <ul class="movie__info-wrap-list list">
             <li class="movie__info-wrap-item">
                 <p class="movie__info-wrap-item-type">Vote / Votes</p>
-                <p class="movie__info-wrap-item-vote"><span>${data.vote_average}</span> / <span>${data.vote_count}</span></p>
+                <p class="movie__info-wrap-item-vote"><span>${data.vote_average}</span> / <span>${
+    data.vote_count
+  }</span></p>
             </li>
             <li class="movie__info-wrap-item">
                 <p class="movie__info-wrap-item-type">Popularity</p>
-                <p class="movie__info-wrap-item-popularity">${data.popularity}</p>
+                <p class="movie__info-wrap-item-popularity">${data.popularity.toFixed(1)}</p>
             </li>
             <li class="movie__info-wrap-item">
                 <p class="movie__info-wrap-item-type">Original Title</p>

@@ -1,5 +1,5 @@
 import { fetchTrending } from './API/APIRequests';
-import { renderCardMovie } from './render-card';
+import { renderCardMovie } from './renderMovieCard';
 import { refs } from './getRefs';
 import { standardizeDataFromAPI } from './standardizeDataFromAPI';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
