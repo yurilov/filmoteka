@@ -9,19 +9,19 @@ export function addToQueued(data) {
         arrayOfQueued = JSON.parse(localStorage.getItem('movieQueued')) || [];
        
         arrayOfQueued.push(data);
-        queueModalBtn.textContent = 'ADDED TO QUEUED';
-
-       const queuedLocalStorageIterator = arrayOfQueued.forEach(result => {
-
-          for(let key in Object.keys(arrayOfQueued)) {
-          console.log(`ITERATOR INSIDE ${key} => ${JSON.stringify(arrayOfQueued[key])}`);
-           
-          // const {id: movieId} = arrayOfQueued[key];
-
-        }})
-    
         removeEventListener();
+        removedFromQueuedLocalStorage();
         localStorage.setItem('movieQueued', JSON.stringify(arrayOfQueued));
+
+        const { id: movieId} = data;
+        console.log(`MOVIEID: ${movieId}`);
+
+    }
+
+    function removedFromQueuedLocalStorage() {
+        queueModalBtn.textContent = 'DELETE FROM QUEUED';
+        
+       
     }
 
     function removeEventListener(){
