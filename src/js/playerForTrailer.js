@@ -1,4 +1,17 @@
-import { fetchFullMovieInfo } from './API/APIRequests';
+const trailers = [
+  {
+    src: "https://www.youtube.com/embed/JfVOs4VSpmA",
+    alt: 'Spider-Man: No Way Home',
+  },
+  {
+    src: "https://www.youtube.com/embed/Y9dr2zw-TXQ",
+    alt: 'Fantastic Beasts: The Secrets of Dumbledore',
+  },
+  {
+    src: 'https://www.youtube.com/embed/mqqft2x_Aa4',
+    alt: 'The Batman',
+  },
+];
 
 const listWithId = document.querySelector('.backdrop');
 const movieCardIdHome = document.querySelector('.gallery-home');
@@ -9,7 +22,7 @@ movieCardIdHome.addEventListener("click", openAlt);
 
 let id = '';
 
-async function openAlt(event) {
+function openAlt(event) {
 
     if (event.target.dataset.id) {
         id = event.target.dataset.id;
@@ -19,9 +32,9 @@ async function openAlt(event) {
     if (event.target.classList.contains("movie__img")) {
         console.log(event.target.getAttribute("alt"));
         console.log(id);
-        const data = await fetchFullMovieInfo(id);
-        console.log(data);
         return
     }
 
 };
+
+function createPlayer() {}
