@@ -2,7 +2,7 @@ import { genres } from './API/genres';
 
 export function creatingAnArrayOfGenres(result) {
   const arrGenres = [];
-  const arrayIdGenres = result.genre_ids;
+  const arrayIdGenres = result.genre_ids || result.genres;
 
   for (let i = 0; i < 3; i++) {
     const idGenre = arrayIdGenres[i];

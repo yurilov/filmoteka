@@ -61,7 +61,7 @@
   // margin-right: auto;
   // margin-left: auto;
   background-color: $whiteColor;
-  overflow-y: scroll;
+  overflow-y: auto;
   transform: scale(1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -237,15 +237,16 @@
   margin-bottom: 10px;
   @include font(12px, 1.17);
   text-transform: uppercase;
-  color: $blackColor;
+  //color: $blackColor;
 }
 
 .movie-description {
+  max-height: 200px;
   margin: 0;
   margin-bottom: 21px;
   @include font(12px, 1.67);
-  overflow-y: scroll;
-  color: $blackColor;
+  overflow-y: auto;
+  //color: $blackColor;
 }
 
 .movie__modal-btn-box {
@@ -258,8 +259,9 @@
   height: 44px;
   @include font(12px, 1.33);
   text-transform: uppercase;
-  border-color: $blackColor;
+  border: 1px solid #000000;
   border-radius: 5px;
+  background-color: #ffffff;
   cursor: pointer;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -315,4 +317,8 @@
   &:hover {
     color: $orangeColor;
   }
+}
+
+.modal-is-open {
+  overflow: hidden;
 }

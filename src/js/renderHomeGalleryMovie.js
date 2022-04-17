@@ -21,3 +21,7 @@ const movie = fetchTrending().then(movie => {
 
   // refs.myLibraryContainerRef.append(...movieCard);
 });
+
+refs.jsHome.addEventListener('click', () => {
+  document.querySelector('#pagination').classList.remove('visually-hidden');
+});
