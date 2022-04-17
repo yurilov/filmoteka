@@ -1,8 +1,12 @@
+import { refs } from './getRefs';
+import { standardizeDataFromAPI } from './standardizeDataFromAPI';
+import { renderCardMovie } from './renderMovieCard';
+import { addLocalData } from './addLocalData';
 const LOCAL_KEY = 'movieWatched';
 
 export function addToWatched(data) {
   const btnAddToWatched = document.querySelector('#watchedModalBtn');
-  const arrayWatchedMovie = addLocalData();
+  const arrayWatchedMovie = addLocalData(LOCAL_KEY);
   const id = data.id;
   const isMovieInLocalData = arrayWatchedMovie.find(movie => movie.id === id);
   if (!isMovieInLocalData) {
@@ -16,9 +20,9 @@ export function addToWatched(data) {
   function onBtnAddToWatched(evt) {
     evt.preventDefault();
     btnAddToWatched.textContent = 'Delete from watched';
-    const watchedMovies = addLocalData();
+    const watchedMovies = addLocalData(LOCAL_KEY);
     watchedMovies.push(data);
-    const movieWatched = localStorage.setItem(LOCAL_KEY, JSON.stringify(watchedMovies));
+    localStorage.setItem(LOCAL_KEY, JSON.stringify(watchedMovies));
     btnAddToWatched.removeEventListener('click', onBtnAddToWatched);
     btnAddToWatched.addEventListener('click', onDeleteFromWatched);
     console.log(watchedMovies);
@@ -34,9 +38,25 @@ export function addToWatched(data) {
   }
 }
 
-function addLocalData() {
-  const localData = JSON.parse(localStorage.getItem(LOCAL_KEY));
+// *** DISPLAY WATCHED MOVIES *** \\
 
-  if (!localData) return [];
-  return localData;
+const watchedBtnRef = document.querySelector('.header-library__btn--watched');
+const queueBtnRef = document.querySelector('.header-library__btn--queue');
+
+watchedBtnRef.addEventListener('click', showWatched);
+
+// ФУНКЦІЯ ВІДОБРАЖЕННЯ ПЕРЕГЛЯНУТИХ ФІЛЬМІВ В "БІБЛІОТЕЦІ"
+export function showWatched() {
+  changeActiveBtnColor();
+  const savedWatchedMovies = addLocalData(LOCAL_KEY);
+  const standardizedResults = savedWatchedMovies.map(data => standardizeDataFromAPI(data));
+  const renderWatched = standardizedResults.map(movie => renderCardMovie(movie));
+  refs.myLibraryContainerRef.innerHTML = '';
+  refs.myLibraryContainerRef.append(...renderWatched);
+}
+
+// ФУНКЦІЯ ЗМІНИ КОЛЬОРУ АКТИВНОЇ КНОПКИ В "БІБЛІОТЕЦІ"
+export function changeActiveBtnColor() {
+  watchedBtnRef.classList.add('header-library__btn--active');
+  queueBtnRef.classList.remove('header-library__btn--active');
 }

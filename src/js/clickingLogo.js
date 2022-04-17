@@ -2,7 +2,9 @@ import { refs } from './getRefs';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 refs.headerLibrary.classList.toggle('visually-hidden');
-
+refs.jsIcon.addEventListener('click', () => {
+  document.querySelector('#pagination').classList.remove('visually-hidden');
+});
 refs.jsIcon.addEventListener('click', opensOrCloses);
 refs.jsHome.addEventListener('click', opensOrCloses);
 refs.jsLibrary.addEventListener('click', opensOrCloses);
