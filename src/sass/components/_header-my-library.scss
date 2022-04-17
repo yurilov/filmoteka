@@ -24,12 +24,9 @@
   color: $whiteColor;
   @include transition(all);
 
-  &:hover,
   &:focus {
     background-color: $secondaryOrangeColor;
     @include transition(all);
-    transition-delay: 0.3s;
-    transition-property: all;
   }
 
   &:not(:last-child) {
