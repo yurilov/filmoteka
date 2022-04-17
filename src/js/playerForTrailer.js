@@ -1,3 +1,5 @@
+// const basicLightbox = require('basiclightbox');
+
 const trailers = [
   {
     src: "https://www.youtube.com/embed/JfVOs4VSpmA",
@@ -13,37 +15,69 @@ const trailers = [
   },
 ];
 
+
 const listWithId = document.querySelector('.backdrop');
+listWithId.addEventListener("click", openPlayer);
+listWithId.addEventListener("click", closePlayer);
 
-listWithId.addEventListener("click", openAlt);
 
-function openAlt(event) {
-
-  if (event.target.classList.contains("movie__img")) {
-    const nameAlt = event.target.getAttribute("alt");
-    createPlayer(nameAlt);
+function openPlayer(event) {
+  
+  event.preventDefault();
+  
+  if (!event.target.classList.contains("movie__img")) {
     return
-  }
+  };
 
+  const nameAlt = event.target.getAttribute("alt");
+  createPlayer(nameAlt);
 };
+
 
 function createPlayer(nameAlt) {
 
-  trailers.forEach(({src, alt}) => {
-    if (nameAlt === alt) {
-      const player = document.createElement("iframe");
-      listWithId.append(player);
-      console.log(src);
-    }
-  });
+  trailers.forEach(({ src, alt }) => {
 
-  // <iframe 
-  //     width="560" 
-  //     height="315" 
-  //     src="https://www.youtube.com/embed/mqqft2x_Aa4" 
-  //     title="YouTube video player"
-  //     frameborder="0" 
-  //     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  //     allowfullscreen>
-  //   </iframe>
+    if (nameAlt === alt) {
+
+      const beckdropPlayer = document.createElement("div");
+      beckdropPlayer.classList.add("beckdrop-player");
+      listWithId.append(beckdropPlayer);
+
+      const player = document.createElement("iframe");
+      player.classList.add("iframe");
+      addAttributesPlayer(player, src);
+
+      beckdropPlayer.append(player);
+    };
+
+  });  
+};
+
+
+function addAttributesPlayer(player, src) { 
+
+  player.setAttribute("width", "560");
+  player.setAttribute("height", "315");
+  player.setAttribute("src", src);
+  player.setAttribute("title", "YouTube video player");
+  player.setAttribute("frameborder", "0");
+  player.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+
+};
+
+
+function closePlayer(event) { 
+  event.preventDefault();
+
+  if (!event.target.classList.contains("beckdrop-player")) {
+    return
+  };
+
+  if (listWithId.querySelector('.beckdrop-player')) { 
+    const beckdropPlayer = document.querySelector('.beckdrop-player');
+    beckdropPlayer.remove();
+    disabled = false;
+    console.log("beckdrop-player удален");
+  };
 };
