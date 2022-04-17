@@ -14,27 +14,36 @@ const trailers = [
 ];
 
 const listWithId = document.querySelector('.backdrop');
-const movieCardIdHome = document.querySelector('.gallery-home');
-
 
 listWithId.addEventListener("click", openAlt);
-movieCardIdHome.addEventListener("click", openAlt);
-
-let id = '';
 
 function openAlt(event) {
 
-    if (event.target.dataset.id) {
-        id = event.target.dataset.id;
-        return
-    }
-
-    if (event.target.classList.contains("movie__img")) {
-        console.log(event.target.getAttribute("alt"));
-        console.log(id);
-        return
-    }
+  if (event.target.classList.contains("movie__img")) {
+    const nameAlt = event.target.getAttribute("alt");
+    createPlayer(nameAlt);
+    return
+  }
 
 };
 
-function createPlayer() {}
+function createPlayer(nameAlt) {
+
+  trailers.forEach(({src, alt}) => {
+    if (nameAlt === alt) {
+      const player = document.createElement("iframe");
+      listWithId.append(player);
+      console.log(src);
+    }
+  });
+
+  // <iframe 
+  //     width="560" 
+  //     height="315" 
+  //     src="https://www.youtube.com/embed/mqqft2x_Aa4" 
+  //     title="YouTube video player"
+  //     frameborder="0" 
+  //     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  //     allowfullscreen>
+  //   </iframe>
+};
