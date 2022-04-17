@@ -1,16 +1,24 @@
 let arrayOfQueued = [];
+const LOCALSTORAGE_KEY = 'movieQueued';
 
 export function addToQueued(data) {
     const queueModalBtn = document.querySelector('#queueModalBtn');
-    queueModalBtn.addEventListener("click", addToQueuedLocalStorage);
+    queueModalBtn.addEventListener("click", onAddToQueued);
+
+    // function onAddToQueued(){
+    //     queueModalBtn.textContent = 'ADD TO QUEUED';
+    //     const removeQueuedButton = document.querySelector('#addedToQueuedMovie');
+
+    //     removeQueuedButton.textContent = 'ADD TO QUEUED';  
+    //    // queueModalBtn.addEventListener('click', onDeleteFromQueued);
+    //     queueModalBtn.removeEventListener('click', onAddToQueued);
+    // }
     
-    function addToQueuedLocalStorage(){
-        arrayOfQueued = JSON.parse(localStorage.getItem('movieQueued')) || [];
-       
+    function onAddToQueued(){
+        arrayOfQueued = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
         arrayOfQueued.push(data);
-        removeEventListener();
      
-        localStorage.setItem('movieQueued', JSON.stringify(arrayOfQueued));
+        localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(arrayOfQueued));
 
         const { id: movieId} = data;
         console.log(`MOVIEID: ${movieId}`);
@@ -21,21 +29,15 @@ export function addToQueued(data) {
         if (isMovieInLocalData) {
             queueModalBtn.textContent = 'Delete from queued';
             queueModalBtn.addEventListener('click', onDeleteFromQueued);
-          } else {
-            queueModalBtn.textContent = 'ADD TO QUEUED';  
-            queueModalBtn.addEventListener('click', onDeleteFromQueued);
-          }
-    }
-
-    function removeEventListener(){
-        queueModalBtn.removeEventListener('click', addToQueuedLocalStorage);
-    }
+          } 
+    } 
 
     function onDeleteFromQueued(){
-        console.log('ON DELETE FROM QUEUED')
-        queueModalBtn.textContent = 'DELETE FROM QUEUED';
+        queueModalBtn.textContent = 'ADD TO QUEUED';
 
-        document.getElementById('queueModalBtn').id = 'addedToQueuedMovie';
-        queueModalBtn.removeEventListener('click', addToQueuedLocalStorage);
+        document.getElementById('queueModalBtn').id = 'movieInQueued';
+        queueModalBtn.removeEventListener('click', onAddToQueued);
     }
+      
+
 }
