@@ -6,7 +6,8 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
-const pagination = new Pagination('pagination', {
+export function trendingPagination() {
+  const pagination = new Pagination('pagination', {
   totalItems: 5000,
   itemsPerPage: 10,
   visiblePages: 5,
@@ -30,18 +31,19 @@ const pagination = new Pagination('pagination', {
   },
 });
 
-pagination.on('beforeMove', async evt => {
-  const currentPage = (fetchTrending.page = evt.page);
-  const movies = await fetchTrending(currentPage).then(movie => {
-    const results = movie.results;
-    const standardizedResults = results.map(result => standardizeDataFromAPI(result));
-    const movieCard = standardizedResults.map(result => renderCardMovie(result));
-    refs.moviesContainerRef.innerHTML = '';
-    refs.moviesContainerRef.append(...movieCard);
+  pagination.on('beforeMove', async evt => {
+    const currentPage = (fetchTrending.page = evt.page);
+    const movies = await fetchTrending(currentPage).then(movie => {
+      const results = movie.results;
+      const standardizedResults = results.map(result => standardizeDataFromAPI(result));
+      const movieCard = standardizedResults.map(result => renderCardMovie(result));
+      refs.moviesContainerRef.innerHTML = '';
+      refs.moviesContainerRef.append(...movieCard);
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    Loading.hourglass('Loading...', {
+      svgColor: '#FF6B08',
+    });
+    Loading.remove(800);
   });
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  Loading.hourglass('Loading...', {
-    svgColor: '#FF6B08',
-  });
-  Loading.remove(800);
-});
+}
