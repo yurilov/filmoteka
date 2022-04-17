@@ -1,8 +1,29 @@
 .header {
-    // width: 100%;
+    
+    & .container {
+        padding-top: 40px;
+        padding-bottom: 44px;
+        padding-left: 20px;
+        padding-right: 20px;
+
+        @media screen and (min-width: 768px) {
+            padding-top: 47px;
+            padding-bottom: 44px;
+            padding-left: 32px;
+            padding-right: 32px;
+        }
+        @media screen and (min-width: 1024px) {
+            padding-top: 45px;
+            max-width: 1600px;
+        }
+    }
+
+}
+
+.header-home{
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(/images/header-bg/header-home-bg-mob-1x.jpg);
-    // width: 100%;
+    
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -24,8 +45,8 @@
     }
     
     @media screen and (min-width: 1024px) {
-        max-width: 1600px;
-        margin: 0 auto;
+        // max-width: 1600px;
+        // margin: 0 auto;
         background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/images/header-bg/header-home-bg-desktop-1x.jpg);
     
         @media (min-device-pixel-ratio: 2),
@@ -34,28 +55,9 @@
             background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/images/header-bg/header-home-bg-desktop-2x.jpg);
         }
     }
-
-    & .container {
-        padding-top: 40px;
-        padding-bottom: 44px;
-        padding-left: 20px;
-        padding-right: 20px;
-
-        @media screen and (min-width: 768px) {
-            padding-top: 47px;
-            padding-bottom: 44px;
-            padding-left: 32px;
-            padding-right: 32px;
-        }
-        @media screen and (min-width: 1024px) {
-            padding-top: 45px;
-            max-width: 1600px;
-        }
-    }
-
 }
 
-.header-library__container {
+.header-library{
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(/images/header-bg/header-library-bg-mob-1x.jpg);
     // width: 100%;
@@ -81,7 +83,9 @@
     
     @media screen and (min-width: 1024px) {
         background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/images/header-bg/header-library-bg-desktop-1x.jpg);
-    
+        // max-width: 1600px;
+        // margin: 0 auto;
+
         @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
@@ -89,41 +93,6 @@
         }
     }
 }
-
-// .header-home__container {
-//     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-//         url(/images/header-bg/header-home-bg-mob-1x.jpg);
-//     // width: 100%;
-//     background-repeat: no-repeat;
-//     background-position: center;
-//     background-size: cover;
-
-//     @media (min-device-pixel-ratio: 2),
-//     (min-resolution: 192dpi),
-//     (min-resolution: 2dppx) {
-//         background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/images/header-bg/header-home-bg-mob-2x.jpg);
-//     }
-
-//     @media screen and (min-width: 768px) {
-//         background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/images/header-bg/header-home-bg-tab-1x.jpg);
-
-//         @media (min-device-pixel-ratio: 2),
-//         (min-resolution: 192dpi),
-//         (min-resolution: 2dppx) {
-//             background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/images/header-bg/header-home-bg-tab-2x.jpg);
-//         }
-//     }
-
-//     @media screen and (min-width: 1024px) {
-//         background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/images/header-bg/header-home-bg-desktop-1x.jpg);
-
-//         @media (min-device-pixel-ratio: 2),
-//         (min-resolution: 192dpi),
-//         (min-resolution: 2dppx) {
-//             background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/images/header-bg/header-home-bg-desktop-2x.jpg);
-//         }
-//     }
-// }
 
 .nav {
     display: flex;

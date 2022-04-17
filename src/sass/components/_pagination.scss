@@ -4,17 +4,11 @@
   margin-left: auto;
   margin-right: auto;
 
-  @media screen and (min-width: $mobile) {
-    width: 480px;
-  }
-
   @media screen and (min-width: $tablet) {
     margin-bottom: 60px;
   }
 
-  @media screen and (min-width: $desktop) {
-    width: 1200px;
-  }
+  
 
   color: #000000;
   font-weight: 500;

@@ -3,6 +3,9 @@
         
     @media screen and (min-width: $mobile){
         min-width:280px;
+        display: block;
+        margin-bottom: 20px;
+
     }
 
     @media screen and (min-width: 768px) {
@@ -17,6 +20,12 @@
         margin-left: 16px;
         flex-basis: calc(100% / 3 - 16px);
     } 
+}
+.movie-card:last-child {
+    margin-bottom: 40px;
+    @media screen and (min-width: 768px){
+        margin-bottom: 60px;
+    }
 }
 
 .movie-card_img{
