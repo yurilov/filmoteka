@@ -1,3 +1,7 @@
+import { refs } from './getRefs';
+import { standardizeDataFromAPI } from './standardizeDataFromAPI';
+import { renderCardMovie } from './renderMovieCard';
+
 const LOCAL_KEY = 'movieWatched';
 
 export function addToWatched(data) {
@@ -39,4 +43,28 @@ function addLocalData() {
 
   if (!localData) return [];
   return localData;
+}
+
+// *** DISPLAY WATCHED MOVIES *** \\
+
+const watchedBtnRef = document.querySelector('.header-library__btn--watched');
+const queueBtnRef = document.querySelector('.header-library__btn--queue');
+
+watchedBtnRef.addEventListener('click', showWatched);
+
+// ФУНКЦІЯ ВІДОБРАЖЕННЯ ПЕРЕГЛЯНУТИХ ФІЛЬМІВ В "БІБЛІОТЕЦІ"
+export function showWatched() {
+  changeActiveBtnColor();
+    const savedWatchedMovies = addLocalData();
+    const standardizedResults = savedWatchedMovies.map(data => standardizeDataFromAPI(data));
+    const renderWatched = standardizedResults.map(movie => renderCardMovie(movie));
+    refs.myLibraryContainerRef.innerHTML = '';
+    refs.myLibraryContainerRef.append(...renderWatched);
+    
+}
+
+// ФУНКЦІЯ ЗМІНИ КОЛЬОРУ АКТИВНОЇ КНОПКИ В "БІБЛІОТЕЦІ"
+export function changeActiveBtnColor() {
+  watchedBtnRef.classList.add('header-library__btn--active');
+  queueBtnRef.classList.remove('header-library__btn--active');
 }
