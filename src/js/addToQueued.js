@@ -5,15 +5,6 @@ export function addToQueued(data) {
     const queueModalBtn = document.querySelector('#queueModalBtn');
     queueModalBtn.addEventListener("click", onAddToQueued);
 
-    // function onAddToQueued(){
-    //     queueModalBtn.textContent = 'ADD TO QUEUED';
-    //     const removeQueuedButton = document.querySelector('#addedToQueuedMovie');
-
-    //     removeQueuedButton.textContent = 'ADD TO QUEUED';  
-    //    // queueModalBtn.addEventListener('click', onDeleteFromQueued);
-    //     queueModalBtn.removeEventListener('click', onAddToQueued);
-    // }
-    
     function onAddToQueued(){
         arrayOfQueued = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
         arrayOfQueued.push(data);
@@ -36,8 +27,8 @@ export function addToQueued(data) {
         queueModalBtn.textContent = 'ADD TO QUEUED';
 
         document.getElementById('queueModalBtn').id = 'movieInQueued';
-        queueModalBtn.removeEventListener('click', onAddToQueued);
-    }
-      
 
+        localStorage.removeItem(LOCALSTORAGE_KEY);
+       // queueModalBtn.removeEventListener('click', onAddToQueued);
+    }    
 }
