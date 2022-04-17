@@ -1,6 +1,6 @@
 import { refs } from './getRefs';
 import { standardizeDataFromAPI } from './standardizeDataFromAPI';
-import { renderCardMovie } from './renderMovieCard';
+import { renderCardMovieMyLibrary } from './renderMovieCard';
 import { addLocalData } from './addLocalData';
 const LOCAL_KEY = 'movieWatched';
 
@@ -50,7 +50,7 @@ export function showWatched() {
   changeActiveBtnColor();
   const savedWatchedMovies = addLocalData(LOCAL_KEY);
   const standardizedResults = savedWatchedMovies.map(data => standardizeDataFromAPI(data));
-  const renderWatched = standardizedResults.map(movie => renderCardMovie(movie));
+  const renderWatched = standardizedResults.map(movie => renderCardMovieMyLibrary(movie));
   refs.myLibraryContainerRef.innerHTML = '';
   refs.myLibraryContainerRef.append(...renderWatched);
 }
