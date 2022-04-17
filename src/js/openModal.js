@@ -27,11 +27,11 @@ async function handleMovieCardClick(e) {
 
 function openModal() {
   refs.backdropRef.classList.toggle('is-hidden');
-  refs.body.classList.add('modal-is-open');
 }
 
 function addEventListenerToModal(e) {
   const closeBtn = document.querySelector('.close-modal-btn');
+  refs.backdropRef.addEventListener('click', closeBackdropClick);
   closeBtn.addEventListener('click', closeModal);
   refs.body.addEventListener('keydown', onKeyPress);
 }
