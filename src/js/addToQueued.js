@@ -2,6 +2,7 @@ import { refs } from './getRefs';
 import { standardizeDataFromLocalStorage } from './standardizeDataFromAPI';
 import { renderCardMovieMyLibrary } from './renderMovieCard';
 import { addLocalData } from './addLocalData';
+import {addToQueueWithoutDuplication} from './queuesWithoutDuplication'
 
 const LOCAL_KEY = 'movieQueued';
 
@@ -28,6 +29,7 @@ export function addToQueued(data) {
     localStorage.setItem(LOCAL_KEY, JSON.stringify(queuedMovies));
     queueModalBtn.removeEventListener('click', addToQueued);
     queueModalBtn.addEventListener('click', deleteFromQueued);
+    addToQueueWithoutDuplication(data);
   }
 
   function deleteFromQueued(e) {

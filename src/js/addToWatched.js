@@ -2,6 +2,9 @@ import { refs } from './getRefs';
 import { standardizeDataFromLocalStorage } from './standardizeDataFromAPI';
 import { renderCardMovieMyLibrary } from './renderMovieCard';
 import { addLocalData } from './addLocalData';
+
+// import {queuesWithoutDuplication} from './queuesWithoutDuplication'
+import { addToWatchedWithoutDuplication} from './queuesWithoutDuplication'
 const LOCAL_KEY = 'movieWatched';
 
 export function addToWatched(data) {
@@ -19,13 +22,16 @@ export function addToWatched(data) {
 
   function onBtnAddToWatched(evt) {
     evt.preventDefault();
+        
     btnAddToWatched.textContent = 'Delete from watched';
     const watchedMovies = addLocalData(LOCAL_KEY);
     watchedMovies.push(data);
     localStorage.setItem(LOCAL_KEY, JSON.stringify(watchedMovies));
     btnAddToWatched.removeEventListener('click', onBtnAddToWatched);
     btnAddToWatched.addEventListener('click', onDeleteFromWatched);
-    console.log(watchedMovies);
+    // queuesWithoutDuplication(data);
+    addToWatchedWithoutDuplication(data);
+    
   }
 
   function onDeleteFromWatched(evt) {
