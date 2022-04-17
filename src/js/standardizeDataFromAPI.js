@@ -5,6 +5,7 @@ export function standardizeDataFromAPI(results) {
   const date = release_date.slice(0, 4);
   const genres = creatingAnArrayOfGenres(results).join(', ');
   const poster_link = `https://image.tmdb.org/t/p/original${poster_path}`;
+  const rating = vote_average.toFixed(1);
 
   return {
     date,
@@ -13,6 +14,6 @@ export function standardizeDataFromAPI(results) {
     original_title,
     poster_link,
     id,
-    vote_average,
+    rating,
   };
 }

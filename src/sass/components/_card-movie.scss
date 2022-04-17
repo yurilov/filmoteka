@@ -51,3 +51,12 @@
     border-color:$orangeColor;
 }
 
+.movie_vote-average{
+    display: block;
+    margin-left: 8px;
+    color: $whiteColor;
+    padding: 1px 9px;
+    padding-bottom: 0;
+    background-color: $secondaryOrangeColor;
+    border-radius: 5px;
+}
