@@ -1,6 +1,6 @@
 import { refs } from './getRefs';
-import { standardizeDataFromAPI } from './standardizeDataFromAPI';
-import { renderCardMovie } from './renderMovieCard';
+import { standardizeDataFromLocalStorage } from './standardizeDataFromAPI';
+import { renderCardMovieMyLibrary } from './renderMovieCard';
 import { addLocalData } from './addLocalData';
 
 const LOCAL_KEY = 'movieQueued';
@@ -50,8 +50,8 @@ queueBtnRef.addEventListener('click', showQueued);
 export function showQueued() {
   changeActiveBtnColor();
   const savedQueuedMovies = addLocalData(LOCAL_KEY);
-  const standardizedResults = savedQueuedMovies.map(data => standardizeDataFromAPI(data));
-  const renderQueued = standardizedResults.map(movie => renderCardMovie(movie));
+  const standardizedResults = savedQueuedMovies.map(data => standardizeDataFromLocalStorage(data));
+  const renderQueued = standardizedResults.map(movie => renderCardMovieMyLibrary(movie));
   refs.myLibraryContainerRef.innerHTML = '';
   refs.myLibraryContainerRef.append(...renderQueued);
 }
