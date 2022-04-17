@@ -1,4 +1,4 @@
-// const basicLightbox = require('basiclightbox');
+// const basicLightbox = require('basiclightbox')
 
 const trailers = [
   {
@@ -22,7 +22,6 @@ listWithId.addEventListener("click", closePlayer);
 
 
 function openPlayer(event) {
-  
   event.preventDefault();
   
   if (!event.target.classList.contains("movie__img")) {
@@ -39,6 +38,12 @@ function createPlayer(nameAlt) {
   trailers.forEach(({ src, alt }) => {
 
     if (nameAlt === alt) {
+      console.log(src);
+
+      // basicLightbox.create(`
+      //   <iframe width="560" height="315" src="${src}" frameborder="0" allowfullscreen></iframe>
+      // `).show()
+
 
       const beckdropPlayer = document.createElement("div");
       beckdropPlayer.classList.add("beckdrop-player");
