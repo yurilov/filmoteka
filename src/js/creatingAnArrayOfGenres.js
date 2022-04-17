@@ -20,3 +20,11 @@ export function creatingAnArrayOfGenres(result) {
 
   return arrGenres;
 }
+
+export function transformGenresToString(genresArray) {
+  const genres = genresArray.map(genre => genre.name);
+  if (genres.length >= 3) {
+    return [genres[0], genres[1], 'Other'].join(', ');
+  }
+  return genres.join(', ');
+}
