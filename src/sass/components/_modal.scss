@@ -263,7 +263,8 @@
   border-radius: 5px;
   background-color: #ffffff;
   cursor: pointer;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  // transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @include transition(all);
 
   &:first-child {
     margin-right: 15px;
@@ -273,11 +274,13 @@
     color: $whiteColor;
     background-color: $orangeColor;
     border-color: $orangeColor;
+    @include transition(all);
   }
   &.added-to-storage {
     background: $orangeColor;
     color: $whiteColor;
     border: 1px solid $orangeColor;
+    @include transition(all);
   }
 
   @media screen and (min-width: $tablet) {
@@ -303,6 +306,7 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  @include transition(all);
 }
 
 // .close-modal-icon {
