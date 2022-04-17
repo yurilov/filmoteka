@@ -1,21 +1,9 @@
-import { fetchTrending } from './API/APIRequests';
-import { renderCardMovieMyLibrary } from './renderMovieCard';
+
 import { refs } from './getRefs';
-import { standardizeDataFromAPI } from './standardizeDataFromAPI';
+import { showWatched } from './addToWatched';
 
-const movie = fetchTrending().then(movie => {
-  const objDataMovie = movie;
 
-  const results = objDataMovie.results;
-  // console.log(results);
-
-  const standardizedResults = results.map(result => standardizeDataFromAPI(result));
-  // console.log(standardizedResults);
-
-  const movieCard = standardizedResults.map(result => {
-    // console.log(result)
-    return renderCardMovieMyLibrary(result);
-  });
-
-  refs.myLibraryContainerRef.append(...movieCard);
+refs.jsLibrary.addEventListener('click', showWatched);
+refs.jsLibrary.addEventListener('click', () => {
+  document.querySelector('#pagination').classList.add('visually-hidden');
 });

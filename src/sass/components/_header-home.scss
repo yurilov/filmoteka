@@ -31,6 +31,10 @@
         font-size: 14px;
         line-height: 1.14;
     }
+    &:focus {
+        outline: none;
+        border-color: $orangeColor;
+    }
     @media screen and (min-width: 768px) {
         width: 336px;
         margin-bottom: 20px;

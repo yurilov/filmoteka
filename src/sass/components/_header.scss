@@ -56,6 +56,7 @@
 }
 
 .header-library__container {
+    height: 230px;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(/images/header-bg/header-library-bg-mob-1x.jpg);
     // width: 100%;
@@ -70,6 +71,7 @@
     }
     
     @media screen and (min-width: 768px) {
+        height: 219px;
         background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/images/header-bg/header-library-bg-tab-1x.jpg);
     
         @media (min-device-pixel-ratio: 2),
@@ -80,6 +82,7 @@
     }
     
     @media screen and (min-width: 1024px) {
+        height: 216px;
         background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/images/header-bg/header-library-bg-desktop-1x.jpg);
     
         @media (min-device-pixel-ratio: 2),
@@ -124,6 +127,43 @@
 //         }
 //     }
 // }
+.header-home__container {
+    height: 230px;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(/images/header-bg/header-home-bg-mob-1x.jpg);
+    // width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/images/header-bg/header-home-bg-mob-2x.jpg);
+    }
+
+    @media screen and (min-width: 768px) {
+        height: 219px;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/images/header-bg/header-home-bg-tab-1x.jpg);
+
+        @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/images/header-bg/header-home-bg-tab-2x.jpg);
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        height: 216px;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/images/header-bg/header-home-bg-desktop-1x.jpg);
+
+        @media (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/images/header-bg/header-home-bg-desktop-2x.jpg);
+        }
+    }
+}
 
 .nav {
     display: flex;
@@ -201,7 +241,7 @@
     position: absolute;
     width: 100%;
     height: 3px;
-    border-radius: 2px;
+    //border-radius: 2px;
     background-color: $orangeColor;
     display: block;
     bottom: -3px;

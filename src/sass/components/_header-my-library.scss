@@ -31,4 +31,10 @@
     &:not(:last-child) {
         margin-right: 20px;
     }
+
+    &--active {
+        background-color: $secondaryOrangeColor;
+        border-color: $secondaryOrangeColor;
+        box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+    }
 }

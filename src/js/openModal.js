@@ -27,6 +27,7 @@ async function handleMovieCardClick(e) {
 
 function openModal() {
   refs.backdropRef.classList.toggle('is-hidden');
+  refs.body.classList.add('modal-is-open');
 }
 
 function addEventListenerToModal(e) {
