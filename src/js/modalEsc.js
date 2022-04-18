@@ -1,9 +1,8 @@
 import { refs } from './getRefs';
-import { standardizeDataFromAPI } from './standardizeDataFromAPI';
-import { renderCardMovie } from './renderMovieCard';
+import { standardizeDataFromLocalStorage } from './standardizeDataFromAPI';
+import { renderCardMovieMyLibrary } from './renderMovieCard';
 
 const body = document.querySelector('body');
-
 
 export function closeModal() {
   const closeBtn = document.querySelector('.close-modal-btn');
@@ -37,12 +36,8 @@ function reload() {
       movies = localData.queued;
     }
 
-    const standardizedResults = movies.map((data) =>
-      standardizeDataFromAPI(data)
-    );
-    const renderSaved = standardizedResults.map((movie) =>
-      renderCardMovie(movie)
-    );
+    const standardizedResults = movies.map(data => standardizeDataFromLocalStorage(data));
+    const renderSaved = standardizedResults.map(movie => renderCardMovieMyLibrary(movie));
     refs.myLibraryContainerRef.innerHTML = '';
     refs.myLibraryContainerRef.append(...renderSaved);
   }
@@ -60,4 +55,4 @@ export function closeBackdropClick(e) {
   } else {
     return;
   }
-  }
+}
