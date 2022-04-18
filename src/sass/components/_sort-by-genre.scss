@@ -1,0 +1,27 @@
+.genres-container {
+    position: absolute;
+    top: -35px;
+    left: 20px;
+
+    @media screen and (min-width: $tablet) {
+        top: -45px;
+        left: 35px;
+    }
+}
+
+.genres-list {
+    background-color: $bgColor;
+    padding: 6px;
+    width: 150px;
+    height: 30px;
+    border: none;
+    font-size: 12px;
+    line-height: 1.33;
+    outline: none;
+    cursor: pointer;
+}
+
+.genres-list_item:checked {
+    background-color: $orangeColor;
+    color: $whiteColor;
+}

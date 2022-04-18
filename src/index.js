@@ -4,6 +4,7 @@ import './js/theme-switcher';
 import './js/renderHomeGalleryMovie';
 import './js/renderMyLibraryGallery';
 import './js/openModal';
+import './js/sortByGenre';
 import { trendingPagination } from './js/pagination';
 // import { myLibraryQueue } from './js/myLibraryQueue';
 import './js/clickingLogo';

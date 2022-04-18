@@ -35,6 +35,14 @@ export async function fetchFullMovieInfo(id) {
   }
 }
 
+export async function sortByGenre(genre, page = 1) {
+    const response = await axios.get(
+      `discover/movie?api_key=${API_KEY}&with_genres=${genre}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=${page}`,
+  );
+  
+      return response.data;
+};
+
 async function fetchVideo(movie_id) {
   const response = await axios.get(`/movie/${movie_id}/videos?api_key=${API_KEY}&language=en-US`);
   return response.data;

@@ -1,6 +1,6 @@
 import { refs } from './getRefs';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
-
+import { renderTrending } from './renderHomeGalleryMovie';
 refs.jsIcon.addEventListener('click', openHome);
 refs.jsHome.addEventListener('click', openHome);
 refs.jsLibrary.addEventListener('click', openGallery);
@@ -20,6 +20,7 @@ function openGallery(e) {
   refs.jsHome.classList.remove('current');
   refs.jsLibrary.classList.add('current');
   document.querySelector('#pagination').classList.add('visually-hidden');
+  document.querySelector('#genres-container').classList.add('visually-hidden');
   document.querySelector('.header-library__btn--watched').click();
 
   setTimeout(() => {
@@ -42,7 +43,8 @@ function openHome(e) {
   refs.jsHome.classList.add('current');
   refs.jsLibrary.classList.remove('current');
   document.querySelector('#pagination').classList.remove('visually-hidden');
-
+  document.querySelector('#genres-container').classList.remove('visually-hidden');
+  renderTrending();
   setTimeout(() => {
     Loading.remove();
   }, 500);
