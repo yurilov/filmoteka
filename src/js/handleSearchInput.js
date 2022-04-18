@@ -18,9 +18,6 @@ async function handleSearchInput(e) {
     } else {
         return refs.moviesContainerRef.innerHTML = '';
     }
-
-    // console.log(results);
-    // console.log(standardizedResults);
 }
 
 
