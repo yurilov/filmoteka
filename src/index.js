@@ -9,6 +9,7 @@ import './js/sortByGenre';
 import { trendingPagination } from './js/pagination';
 import './js/clickingLogo';
 import './js/playerForTrailer';
+import './js/backToTop';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 Loading.hourglass('Loading...', {
