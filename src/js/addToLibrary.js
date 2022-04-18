@@ -1,6 +1,7 @@
 import { refs } from './getRefs';
 import { standardizeDataFromLocalStorage } from './standardizeDataFromAPI';
 import { renderCardMovieMyLibrary } from './renderMovieCard';
+import {addWithoutDuplication} from './queuesWithoutDuplication';
 
 let localData = {};
 let type = '';
@@ -56,6 +57,7 @@ export function addToLibrary(data) {
       this.textContent = 'Add to ' + type;
     }
   }
+  addWithoutDuplication(data);
 }
 
 export function addLocalData() {
