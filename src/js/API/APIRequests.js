@@ -34,3 +34,11 @@ export async function fetchFullMovieInfo(id) {
     Notify.failure('Search result not successful. Enter the correct movie id and try again');
   }
 }
+
+export async function sortByGenre(genre, page = 1) {
+    const response = await axios.get(
+      `discover/movie?api_key=${API_KEY}&with_genres=${genre}&language=en-US&sort_by=popularity.desc&include_adult=true&include_video=false&page=${page}`,
+  );
+  
+      return response.data;
+};

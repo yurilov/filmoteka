@@ -20,6 +20,7 @@ function openGallery(e) {
   refs.jsHome.classList.remove('current');
   refs.jsLibrary.classList.add('current');
   document.querySelector('#pagination').classList.add('visually-hidden');
+  document.querySelector('#genres-container').classList.add('visually-hidden');
 
   setTimeout(() => {
     Loading.remove();
@@ -41,6 +42,7 @@ function openHome(e) {
   refs.jsHome.classList.add('current');
   refs.jsLibrary.classList.remove('current');
   document.querySelector('#pagination').classList.remove('visually-hidden');
+  document.querySelector('#genres-container').classList.remove('visually-hidden');
 
   setTimeout(() => {
     Loading.remove();

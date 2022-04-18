@@ -1,9 +1,10 @@
 .theme-switcher {
     position: absolute;
-    top: -72px;
+    top: -44px;
     right: 20px;
 
     @media screen and (min-width: 768px) {
+        top: -72px;
         right: 32px;
     }
 }
@@ -109,6 +110,11 @@ body.dark-theme {
     }
 
     &.dark-theme .footer {
+        color: $whiteColor;
+        background: $blackThemeSecondary;
+    }
+
+    &.dark-theme .genres-list {
         color: $whiteColor;
         background: $blackThemeSecondary;
     }

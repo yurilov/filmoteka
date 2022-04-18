@@ -1,5 +1,6 @@
 .movie-card {
     color: inherit;
+    transition: 300ms;
         
     @media screen and (min-width: $mobile){
         min-width:280px;
@@ -19,8 +20,9 @@
     @media screen and (min-width: 1024px) {
         margin-left: 16px;
         flex-basis: calc(100% / 3 - 16px);
-    } 
+    }
 }
+
 .movie-card:last-child {
     margin-bottom: 40px;
     @media screen and (min-width: 768px){

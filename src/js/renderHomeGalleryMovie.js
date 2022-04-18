@@ -24,4 +24,5 @@ const movie = fetchTrending().then(movie => {
 
 refs.jsHome.addEventListener('click', () => {
   document.querySelector('#pagination').classList.remove('visually-hidden');
+  //document.querySelector('#genres-container').classList.remove('visually-hidden');
 });
