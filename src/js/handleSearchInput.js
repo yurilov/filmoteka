@@ -9,18 +9,24 @@ async function handleSearchInput(e) {
   e.preventDefault();
   const q = e.target.value.trim();
   const data = await loadMovies(q);
-  const results = data.results;
-  // console.log(results);
-  const standardizedResults = results.map(result => standardizeDataFromAPI(result));
-  // console.log(standardizedResults);
-  const movieCard = standardizedResults.map(result => renderCardMovie(result));
-  refs.moviesContainerRef.innerHTML = '';
-  refs.moviesContainerRef.append(...movieCard);
+  if (refs.searchInputRef.value.length > 0) {
+    let results = data.results;
+    const standardizedResults = results.map(result => standardizeDataFromAPI(result));
+    const movieCard = standardizedResults.map(result => renderCardMovie(result));
+    refs.moviesContainerRef.innerHTML = '';
+    refs.moviesContainerRef.append(...movieCard);
+  } else {
+    return (refs.moviesContainerRef.innerHTML = '');
+  }
 }
 
 refs.searchInputRef.addEventListener('input', debounce(handleSearchInput, 500));
 
 async function loadMovies(q) {
-  const dataFromAPI = await fetchSearchByKeyword(q);
-  return dataFromAPI.data;
+  if (q.length > 0) {
+    const dataFromAPI = await fetchSearchByKeyword(q);
+    return dataFromAPI.data;
+  } else {
+    return;
+  }
 }

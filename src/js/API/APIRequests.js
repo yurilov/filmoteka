@@ -42,3 +42,21 @@ export async function sortByGenre(genre, page = 1) {
   
       return response.data;
 };
+
+async function fetchVideo(movie_id) {
+  const response = await axios.get(`/movie/${movie_id}/videos?api_key=${API_KEY}&language=en-US`);
+  return response.data;
+}
+
+export async function getVideoUrl(movie_id) {
+  const data = await fetchVideo(movie_id)
+    .then(({ results }) =>
+      results.map(item => {
+        if (item.site === 'YouTube') {
+          return `https://www.youtube.com/embed/${item.key}`;
+        }
+      }),
+    )
+    .catch(err => console.log(err));
+  return data[0];
+}

@@ -21,6 +21,7 @@ function openGallery(e) {
   refs.jsLibrary.classList.add('current');
   document.querySelector('#pagination').classList.add('visually-hidden');
   document.querySelector('#genres-container').classList.add('visually-hidden');
+  document.querySelector('.header-library__btn--watched').click();
 
   setTimeout(() => {
     Loading.remove();

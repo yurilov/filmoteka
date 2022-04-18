@@ -2,8 +2,7 @@ import { renderMovieModal } from './renderMovieModal';
 import { refs } from './getRefs';
 import { fetchFullMovieInfo } from './API/APIRequests';
 import { closeModal, onKeyPress, closeBackdropClick } from './modalEsc';
-import { addToWatched } from './addToWatched';
-import {addToLibrary} from './addToLibrary';
+import { addToLibrary } from './addToLibrary';
 
 async function handleMovieCardClick(e) {
   e.preventDefault();
@@ -13,7 +12,7 @@ async function handleMovieCardClick(e) {
   openModal();
   const id = e.target.dataset.id;
   const data = await fetchFullMovieInfo(id);
-  
+
   const modalMarkup = renderMovieModal(data);
   refs.backdropRef.innerHTML = '';
 
@@ -22,9 +21,9 @@ async function handleMovieCardClick(e) {
   addToLibrary(data);
 }
 
-
 function openModal() {
   refs.backdropRef.classList.toggle('is-hidden');
+  refs.body.classList.add('modal-is-open');
 }
 
 function addEventListenerToModal(e) {
