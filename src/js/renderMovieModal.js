@@ -8,6 +8,7 @@ export function renderMovieModal(data) {
             src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2${data.poster_path}"
             alt="${data.title}"
             class="movie__img modal-poster"
+            data-id="${data.id}"
         />
         </div>
         <div class="movie__content-wrap">

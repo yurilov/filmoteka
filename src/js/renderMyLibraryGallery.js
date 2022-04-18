@@ -1,9 +1,10 @@
 
 import { refs } from './getRefs';
-import { showWatched } from './addToWatched';
+import { showSaved } from './addToLibrary';
 
 
-refs.jsLibrary.addEventListener('click', showWatched);
+refs.jsLibrary.addEventListener('click', showSaved);
 refs.jsLibrary.addEventListener('click', () => {
   document.querySelector('#pagination').classList.add('visually-hidden');
+  //document.querySelector('#genres-container').classList.add('visually-hidden');
 });

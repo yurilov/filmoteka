@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/svg/film.svg" type="svg" />
     <title>Filmoteka</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,32 +18,91 @@
       crossorigin="anonymous"
     />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    
   </head>
   <body>
-     <include src="./partials/header-home.html"></include>
-     <include src="./partials/header-my-library.html"></include> 
-     <include src="./partials/theme-switcher.html"></include>
+    <header class="header header-home ">
+      <div class="container header-home__container">
+        <nav class="nav">
+          <a href="index.html" class="logo link js-icon">
+            <svg width="24" height="24">
+              <use href="/images/svg/sprite.svg#icon-film"></use>
+            </svg>
+            <h1 class="site-title">Filmoteka</h1>
+          </a>
+          <div class="nav__buttons">            
+            <button class="nav__btn current js-home">home</button>          
+            <button class="nav__btn js-library">my library</button>
+          </div>
+        </nav>
+        <div class="search">
+          <input type="text" class="search__input input" placeholder="Find movies">
+          <!-- <p class="input-mistake">Search result not successful. Enter the correct movie name and</p> -->
+        </div>
+        <div class="header-library__buttons visually-hidden">
+          <button class="header-library__btn header-library__btn--watched">Watched</button>
+          <button class="header-library__btn header-library__btn--queue">queue</button>
+        </div>
+      </div>
+    </header>
+  
+    <div class="container">
+      <div class="theme-switcher">
+        <input type="checkbox" class="checkbox-theme-switcher" id="checkbox-theme-switcher">
+        <label for="checkbox-theme-switcher" class="label-theme-switcher">
+          <img src="/images/svg/sun.svg" alt="sun" width="15" height="15">
+          <img src="/images/svg/moon.svg" alt="moon" width="15" height="15">
+          <div class="ball-switcher"></div>
+        </label>
+      </div>
+    </div>
+
     <main>
+      <div class="container" id="genres-container">
+        <div class="genres-container">
+          <select class="genres-list" name="genre" id="selected">
+            <option class="genres-list_item" value="">All Genres</option>
+            <option class="genres-list_item" value="28">Action</option>
+            <option class="genres-list_item" value="12">Adventure</option>
+            <option class="genres-list_item" value="16">Animation</option>
+            <option class="genres-list_item" value="35">Comedy</option>
+            <option class="genres-list_item" value="80">Crime</option>
+            <option class="genres-list_item" value="99">Documentary</option>
+            <option class="genres-list_item" value="18">Drama</option>
+            <option class="genres-list_item" value="10751">Family</option>
+            <option class="genres-list_item" value="14">Fantasy</option>
+            <option class="genres-list_item" value="36">History</option>
+            <option class="genres-list_item" value="27">Horror</option>
+            <option class="genres-list_item" value="10402">Music</option>
+            <option class="genres-list_item" value="9648">Mystery</option>
+            <option class="genres-list_item" value="10749">Romance</option>
+            <option class="genres-list_item" value="878">Science Fiction</option>
+            <option class="genres-list_item" value="10770">TV Movie</option>
+            <option class="genres-list_item" value="53">Thriller</option>
+            <option class="genres-list_item" value="10752">War</option>
+            <option class="genres-list_item" value="37">Western</option>
+          </select>
+        </div>
+      </div>
       <div class="container gallery__container">
         <div class="gallery gallery-home"></div>
         <div class="gallery gallery-my-library visually-hidden"></div>
-      </div>
-      
-      <include src="./partials/pagination.html"></include>
+      </div>      
+      <div id="pagination" class="tui-pagination"></div>
     </main>
     <footer class="footer">
       <div class="footer__container container">
-        <p class="footer__text">&#169; 2022 | All Rights Reserved | Developed with</p>
-        <p class="footer__text-btn">
+        <span class="footer__text">&#169; 2022 | All Rights Reserved | Developed with</span>
+        <span class="footer__text-btn">
           <svg class="footer__icon-heart" width="14" height="13">
             <use href="./images/svg/sprite.svg#icon-heart"></use>
           </svg>
           by
           <button class="footer__btn" type="button">GoIT Students</button>
-        </p>
+        </span>
       </div>
     </footer>
-    
+
     <div class="backdrop is-hidden" data-index="backdrop"></div>
     
     <script src="./index.js"></script>

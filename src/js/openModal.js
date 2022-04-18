@@ -1,9 +1,8 @@
 import { renderMovieModal } from './renderMovieModal';
 import { refs } from './getRefs';
 import { fetchFullMovieInfo } from './API/APIRequests';
-import { closeModal, onKeyPress, handleBackdropClick } from './modalEsc';
-import { addToWatched } from './addToWatched';
-import { addToQueued } from './addToQueued';
+import { closeModal, onKeyPress, closeBackdropClick } from './modalEsc';
+import { addToLibrary } from './addToLibrary';
 
 async function handleMovieCardClick(e) {
   e.preventDefault();
@@ -19,8 +18,7 @@ async function handleMovieCardClick(e) {
 
   refs.backdropRef.append(modalMarkup);
   addEventListenerToModal(e);
-  addToWatched(data);
-  addToQueued(data);
+  addToLibrary(data);
 }
 
 export function openModal() {
@@ -29,7 +27,8 @@ export function openModal() {
 }
 
 export function addEventListenerToModal(e) {
-  const closeBtn = document.querySelector('.js-close-modal');
+  const closeBtn = document.querySelector('.close-modal-btn');
+  refs.backdropRef.addEventListener('click', closeBackdropClick);
   closeBtn.addEventListener('click', closeModal);
   refs.body.addEventListener('keydown', onKeyPress);
   refs.backdropRef.addEventListener('click', handleBackdropClick);

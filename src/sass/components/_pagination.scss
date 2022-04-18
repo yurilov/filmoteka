@@ -24,6 +24,7 @@
   width: 38px !important;
   height: 38px !important;
   padding-top: 13px !important;
+  transition: 300ms;
 
   @media screen and (min-width: $mobile) {
     width: 40px !important;
