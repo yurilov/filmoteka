@@ -3,8 +3,7 @@ import { refs } from './getRefs';
 import { fetchFullMovieInfo } from './API/APIRequests';
 import { closeModal, onKeyPress } from './modalEsc';
 import { addToWatched } from './addToWatched';
-import {addToQueued} from './addToQueued';
-
+import {addToLibrary} from './addToLibrary';
 
 async function handleMovieCardClick(e) {
   e.preventDefault();
@@ -20,13 +19,13 @@ async function handleMovieCardClick(e) {
 
   refs.backdropRef.append(modalMarkup);
   addEventListenerToModal(e);
-  addToWatched(data);
-  addToQueued(data);
+  addToLibrary(data);
 }
 
 
 function openModal() {
   refs.backdropRef.classList.toggle('is-hidden');
+  refs.body.classList.add('modal-is-open');
 }
 
 function addEventListenerToModal(e) {
