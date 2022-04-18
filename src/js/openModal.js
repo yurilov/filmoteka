@@ -2,7 +2,6 @@ import { renderMovieModal } from './renderMovieModal';
 import { refs } from './getRefs';
 import { fetchFullMovieInfo } from './API/APIRequests';
 import { closeModal, onKeyPress, closeBackdropClick } from './modalEsc';
-import { addToWatched } from './addToWatched';
 import { addToLibrary } from './addToLibrary';
 
 async function handleMovieCardClick(e) {
