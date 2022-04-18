@@ -7,6 +7,7 @@ import './js/openModal';
 import { trendingPagination } from './js/pagination';
 // import { myLibraryQueue } from './js/myLibraryQueue';
 import './js/clickingLogo';
+import './js/playerForTrailer';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 Loading.hourglass('Loading...', {
   svgColor: '#FF6B08',

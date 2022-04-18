@@ -1,6 +1,6 @@
 import { refs } from './getRefs';
-import { standardizeDataFromAPI } from './standardizeDataFromAPI';
-import { renderCardMovie } from './renderMovieCard';
+import { standardizeDataFromLocalStorage } from './standardizeDataFromAPI';
+import { renderCardMovieMyLibrary } from './renderMovieCard';
 
 let localData = {};
 let type = '';
@@ -19,7 +19,7 @@ export function addToLibrary(data) {
       type = 'queued';
     }
 
-    const isMovieInLocalData = movies.find((movie) => movie.id === data.id);
+    const isMovieInLocalData = movies.find(movie => movie.id === data.id);
     if (isMovieInLocalData) {
       button.textContent = 'Delete from ' + type;
     } else {
@@ -42,7 +42,7 @@ export function addToLibrary(data) {
       localKey = 'movieQueued';
     }
 
-    const isMovieInLocalData = movies.find((movie) => movie.id === data.id);
+    const isMovieInLocalData = movies.find(movie => movie.id === data.id);
     if (!isMovieInLocalData) {
       this.textContent = 'Add to ' + type;
       movies.push(data);
@@ -51,9 +51,7 @@ export function addToLibrary(data) {
     }
     if (isMovieInLocalData) {
       this.textContent = 'Delete from ' + type;
-      const filteredMoviesArray = movies.filter(
-        (movie) => movie.id !== data.id
-      );
+      const filteredMoviesArray = movies.filter(movie => movie.id !== data.id);
       localStorage.setItem(localKey, JSON.stringify(filteredMoviesArray));
       this.textContent = 'Add to ' + type;
     }
@@ -89,12 +87,8 @@ function showSaved() {
   } else {
     savedMovies = localData.queued;
   }
-  const standardizedResults = savedMovies.map((data) =>
-    standardizeDataFromAPI(data)
-  );
-  const renderSaved = standardizedResults.map((movie) =>
-    renderCardMovie(movie)
-  );
+  const standardizedResults = savedMovies.map(data => standardizeDataFromLocalStorage(data));
+  const renderSaved = standardizedResults.map(movie => renderCardMovieMyLibrary(movie));
   refs.myLibraryContainerRef.innerHTML = '';
   refs.myLibraryContainerRef.append(...renderSaved);
 }

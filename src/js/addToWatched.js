@@ -40,23 +40,23 @@ export function addToWatched(data) {
 
 // *** DISPLAY WATCHED MOVIES *** \\
 
-const watchedBtnRef = document.querySelector('.header-library__btn--watched');
-const queueBtnRef = document.querySelector('.header-library__btn--queue');
+// const watchedBtnRef = document.querySelector('.header-library__btn--watched');
+// const queueBtnRef = document.querySelector('.header-library__btn--queue');
 
-watchedBtnRef.addEventListener('click', showWatched);
+// watchedBtnRef.addEventListener('click', showWatched);
 
-// ФУНКЦІЯ ВІДОБРАЖЕННЯ ПЕРЕГЛЯНУТИХ ФІЛЬМІВ В "БІБЛІОТЕЦІ"
-export function showWatched() {
-  changeActiveBtnColor();
-  const savedWatchedMovies = addLocalData(LOCAL_KEY);
-  const standardizedResults = savedWatchedMovies.map(data => standardizeDataFromLocalStorage(data));
-  const renderWatched = standardizedResults.map(movie => renderCardMovieMyLibrary(movie));
-  refs.myLibraryContainerRef.innerHTML = '';
-  refs.myLibraryContainerRef.append(...renderWatched);
-}
+// // ФУНКЦІЯ ВІДОБРАЖЕННЯ ПЕРЕГЛЯНУТИХ ФІЛЬМІВ В "БІБЛІОТЕЦІ"
+// export function showWatched() {
+//   changeActiveBtnColor();
+//   const savedWatchedMovies = addLocalData(LOCAL_KEY);
+//   const standardizedResults = savedWatchedMovies.map(data => standardizeDataFromLocalStorage(data));
+//   const renderWatched = standardizedResults.map(movie => renderCardMovieMyLibrary(movie));
+//   refs.myLibraryContainerRef.innerHTML = '';
+//   refs.myLibraryContainerRef.append(...renderWatched);
+// }
 
-// ФУНКЦІЯ ЗМІНИ КОЛЬОРУ АКТИВНОЇ КНОПКИ В "БІБЛІОТЕЦІ"
-export function changeActiveBtnColor() {
-  watchedBtnRef.classList.add('header-library__btn--active');
-  queueBtnRef.classList.remove('header-library__btn--active');
-}
+// // ФУНКЦІЯ ЗМІНИ КОЛЬОРУ АКТИВНОЇ КНОПКИ В "БІБЛІОТЕЦІ"
+// export function changeActiveBtnColor() {
+//   watchedBtnRef.classList.add('header-library__btn--active');
+//   queueBtnRef.classList.remove('header-library__btn--active');
+// }
