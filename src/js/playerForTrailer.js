@@ -1,24 +1,10 @@
-// const basicLightbox = require('basiclightbox')
 
-const trailers = [
-  {
-    src: "https://www.youtube.com/embed/JfVOs4VSpmA",
-    alt: 'Spider-Man: No Way Home',
-  },
-  {
-    src: "https://www.youtube.com/embed/Y9dr2zw-TXQ",
-    alt: 'Fantastic Beasts: The Secrets of Dumbledore',
-  },
-  {
-    src: 'https://www.youtube.com/embed/mqqft2x_Aa4',
-    alt: 'The Batman',
-  },
-];
-
+import { trailers } from './trailerList'; //src, alt
 
 const listWithId = document.querySelector('.backdrop');
 listWithId.addEventListener("click", openPlayer);
-listWithId.addEventListener("click", closePlayer);
+listWithId.addEventListener("click", closePlayerIcons);
+listWithId.addEventListener("click", closePlayerBeckdrop);
 
 
 function openPlayer(event) {
@@ -29,60 +15,62 @@ function openPlayer(event) {
   };
 
   const nameAlt = event.target.getAttribute("alt");
+
   createPlayer(nameAlt);
 };
 
 
-function createPlayer(nameAlt) {
+const createPlayer = nameAlt => {
 
-  trailers.forEach(({ src, alt }) => {
+  return trailers.forEach(({ src, alt }) => {
 
     if (nameAlt === alt) {
-      console.log(src);
+      
+      const markup = `
+        <div class="beckdrop-player">
+          <iframe class="iframe"  width="560" height="315" src="${src}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <button type="button" class="close-modal-btn" data-action="close-modal" id="close">
+            <span class="material-icons" width="14" height="14">close</span>
+          </button>
+        </div>
+      `
 
-      // basicLightbox.create(`
-      //   <iframe width="560" height="315" src="${src}" frameborder="0" allowfullscreen></iframe>
-      // `).show()
-
-
-      const beckdropPlayer = document.createElement("div");
-      beckdropPlayer.classList.add("beckdrop-player");
-      listWithId.append(beckdropPlayer);
-
-      const player = document.createElement("iframe");
-      player.classList.add("iframe");
-      addAttributesPlayer(player, src);
-
-      beckdropPlayer.append(player);
+      return listWithId.insertAdjacentHTML("beforeend", markup);        
     };
 
   });  
 };
 
 
-function addAttributesPlayer(player, src) { 
+function closePlayerIcons(event) { 
+  event.preventDefault();
 
-  player.setAttribute("width", "560");
-  player.setAttribute("height", "315");
-  player.setAttribute("src", src);
-  player.setAttribute("title", "YouTube video player");
-  player.setAttribute("frameborder", "0");
-  player.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+  if (!event.target.classList.contains("material-icons")) {
+    return
+  };
 
+  closePlayer()
 };
 
 
-function closePlayer(event) { 
+function closePlayerBeckdrop(event) { 
   event.preventDefault();
 
   if (!event.target.classList.contains("beckdrop-player")) {
     return
   };
 
+  closePlayer();
+};
+
+
+function closePlayer() { 
+
   if (listWithId.querySelector('.beckdrop-player')) { 
     const beckdropPlayer = document.querySelector('.beckdrop-player');
     beckdropPlayer.remove();
-    disabled = false;
-    console.log("beckdrop-player удален");
+    return
   };
+
+  return
 };
