@@ -1,4 +1,5 @@
 .header {
+  @include transition(all);
   & .container {
     padding-top: 40px;
     padding-bottom: 44px;
@@ -44,6 +45,7 @@
   @media screen and (min-width: 1024px) {
     // max-width: 1600px;
     // margin: 0 auto;
+    height: 216px;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(/images/header-bg/header-home-bg-desktop-1x.jpg);
 

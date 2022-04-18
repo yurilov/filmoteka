@@ -1,4 +1,5 @@
 .header-library__buttons {
+  @include transition(all);
   display: block;
   display: flex;
   justify-content: center;
@@ -24,9 +25,10 @@
   color: $whiteColor;
   @include transition(all);
 
-  &:focus {
+  &:focus,
+   &:hover {
     background-color: $secondaryOrangeColor;
-    @include transition(all);
+    // @include transition(all);
   }
 
   &:not(:last-child) {
@@ -37,6 +39,6 @@
     background-color: $secondaryOrangeColor;
     border-color: $secondaryOrangeColor;
     box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
-    @include transition(all);
+    // @include transition(all);
   }
 }
