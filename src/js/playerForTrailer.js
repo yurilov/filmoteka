@@ -1,76 +1,78 @@
-
-import { trailers } from './trailerList'; //src, alt
-
+import { getVideoUrl } from './API/APIRequests';
+// import { trailers } from './trailerList'; //src, alt
+import { refs } from './getRefs';
 const listWithId = document.querySelector('.backdrop');
-listWithId.addEventListener("click", openPlayer);
-listWithId.addEventListener("click", closePlayerIcons);
-listWithId.addEventListener("click", closePlayerBeckdrop);
-
+listWithId.addEventListener('click', openPlayer);
+listWithId.addEventListener('click', closePlayerIcons);
+listWithId.addEventListener('click', closePlayerbackdrop);
 
 function openPlayer(event) {
   event.preventDefault();
-  
-  if (!event.target.classList.contains("movie__img")) {
-    return
-  };
 
-  const nameAlt = event.target.getAttribute("alt");
+  if (!event.target.classList.contains('movie__img')) {
+    return;
+  }
 
-  createPlayer(nameAlt);
+  const movieId = event.target.dataset.id;
+
+  createPlayer(movieId);
+}
+const createPlayer = movieId => {
+  const trailerUrl = getVideoUrl(movieId).then(url => {
+    const markup = `
+         <div class="backdrop-player">
+           <iframe class="iframe"  width="560" height="315" src="${url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+           <button type="button" class="close-modal-btn" data-action="close-modal" id="close">
+             <span class="material-icons" width="14" height="14">close</span>
+           </button>
+         </div>
+       `;
+    listWithId.insertAdjacentHTML('beforeend', markup);
+  });
 };
+// const createPlayer = movie_id => {
+//   return trailers.forEach(({ src, alt }) => {
+//     if (nameAlt === alt) {
+//       const markup = `
+//         <div class="backdrop-player">
+//           <iframe class="iframe"  width="560" height="315" src="${src}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+//           <button type="button" class="close-modal-btn" data-action="close-modal" id="close">
+//             <span class="material-icons" width="14" height="14">close</span>
+//           </button>
+//         </div>
+//       `;
 
+//       return listWithId.insertAdjacentHTML('beforeend', markup);
+//     }
+//   });
+// };
 
-const createPlayer = nameAlt => {
-
-  return trailers.forEach(({ src, alt }) => {
-
-    if (nameAlt === alt) {
-      
-      const markup = `
-        <div class="beckdrop-player">
-          <iframe class="iframe"  width="560" height="315" src="${src}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <button type="button" class="close-modal-btn" data-action="close-modal" id="close">
-            <span class="material-icons" width="14" height="14">close</span>
-          </button>
-        </div>
-      `
-
-      return listWithId.insertAdjacentHTML("beforeend", markup);        
-    };
-
-  });  
-};
-
-
-function closePlayerIcons(event) { 
+function closePlayerIcons(event) {
   event.preventDefault();
 
-  if (!event.target.classList.contains("material-icons")) {
-    return
-  };
-
-  closePlayer()
-};
-
-
-function closePlayerBeckdrop(event) { 
-  event.preventDefault();
-
-  if (!event.target.classList.contains("beckdrop-player")) {
-    return
-  };
+  if (!event.target.classList.contains('material-icons')) {
+    return;
+  }
 
   closePlayer();
-};
+}
 
+function closePlayerbackdrop(event) {
+  event.preventDefault();
 
-function closePlayer() { 
+  if (!event.target.classList.contains('backdrop-player')) {
+    return;
+  }
 
-  if (listWithId.querySelector('.beckdrop-player')) { 
-    const beckdropPlayer = document.querySelector('.beckdrop-player');
-    beckdropPlayer.remove();
-    return
-  };
+  closePlayer();
+}
 
-  return
-};
+function closePlayer() {
+  if (listWithId.querySelector('.backdrop-player')) {
+    const backdropPlayer = document.querySelector('.backdrop-player');
+    backdropPlayer.remove();
+    return;
+  }
+
+  return;
+}
