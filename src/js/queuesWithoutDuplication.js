@@ -8,8 +8,8 @@ let localKey = '';
 
 // функції які при настисканні на кнопку додати видаляє з іншого локалу, якщо фільм та уже є
 // functions, when you click the add button removes from another locale, if the movie already exists
-export function addWithoutDuplication(data) {
-    const choosenMovies = addLocalData('movieQueued');
+export function addWithoutDuplication(data, key) {
+    const choosenMovies = addLocalData(key);
     const id = data.id;
     const isMovieInLocalData = choosenMovies.find(movie => movie.id === id);
     if (!isMovieInLocalData) {
@@ -39,3 +39,22 @@ export function addWithoutDuplication(data) {
     }
 }
 }
+
+// export function queuesWithoutDuplication(data, key) {
+//     const selectedMovies = addLocalData(key);
+//       const id = data.id;
+//       const isMovieInLocalData = selectedMovies.find(movie => movie.id === id);
+//       if (!isMovieInLocalData) {
+//         return;
+//       } else {
+//         let movieIsInQueue = confirm("Фільм є у черзі на перегляд. Перемістити його у переглянуті?");
+//         if (!movieIsInQueue) {
+//           return
+//         }
+//         const btnAddToQueue = document.querySelector('#queueModalBtn');
+//         const newArrayQueue = selectedMovies.filter(movie => movie.id !== id);
+//         localStorage.setItem('movieQueued', JSON.stringify(newArrayQueue));
+//         btnAddToQueue.textContent = 'Add to queue';
+//         onBtnAddToWatched();
+//       }
+//   } 
