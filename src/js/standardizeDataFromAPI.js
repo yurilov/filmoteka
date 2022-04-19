@@ -40,10 +40,10 @@ export function standardizeDataFromLocalStorage(results) {
   const date = release_date.slice(0, 4);
   const genres = transformGenresToString(genresArray);
   let poster_link;
-  let poster_link_modal:
+  let poster_link_modal;
   if (poster_path !== null) {
     poster_link = `https://image.tmdb.org/t/p/original${poster_path}`;
-    poster_link_modal = `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${poster_path}`
+    poster_link_modal = `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${poster_path}`;
   } else {
     poster_link = 'https://blankposter.com/wp-content/uploads/2021/11/Andrea_Busi_Wack-1-860x1204.jpg';
     poster_link_modal = 'https://blankposter.com/wp-content/uploads/2021/11/Andrea_Busi_Wack-1-860x1204.jpg';
