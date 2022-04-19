@@ -4,6 +4,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &.visually-hidden {
+        width: 1px;
+    }
 }
 
 .search__input {

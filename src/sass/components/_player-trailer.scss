@@ -1,4 +1,4 @@
-.beckdrop-player{
+.backdrop-player{
     position: fixed;
     top: 0;
     left: 0;
@@ -13,4 +13,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
+}
+
+.backdrop-player .close-modal-btn{
+    border-radius: 50%;
+    background-color: $orangeColor;
+
+    transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop-player .close-modal-btn:hover,
+.backdrop-player .close-modal-btn:focus {
+    background-color: transparent;
 }

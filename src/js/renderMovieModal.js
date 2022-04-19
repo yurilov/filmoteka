@@ -5,7 +5,7 @@ export function renderMovieModal(data) {
       <div class="movie modal" data-index="modal" modal data-modal>
         <div class="movie__image-wrap">
         <img
-            src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2${data.poster_path}"
+            src="${data.poster_link_modal}"
             alt="${data.title}"
             class="movie__img modal-poster"
             data-id="${data.id}"
@@ -17,7 +17,7 @@ export function renderMovieModal(data) {
             <ul class="movie__info-wrap-list list">
             <li class="movie__info-wrap-item">
                 <p class="movie__info-wrap-item-type">Vote / Votes</p>
-                <p class="movie__info-wrap-item-vote"><span>${data.vote_average}</span> / <span>${
+                <p class="movie__info-wrap-item-vote"><span>${data.rating}</span> / <span>${
     data.vote_count
   }</span></p>
             </li>
@@ -32,7 +32,7 @@ export function renderMovieModal(data) {
             <li class="movie__info-wrap-item">
                 <p class="movie__info-wrap-item-type">Genre</p>
                 <ul class="movie__info-list list">
-                <li class="movie__info-item">${data.genres[0].name}</li>
+                <li class="movie__info-item">${data.genres}</li>
                 </ul>
             </li>
             </ul>
