@@ -4,6 +4,7 @@ import { fetchFullMovieInfo } from './API/APIRequests';
 import { closeModal, onKeyPress, closeBackdropClick } from './modalEsc';
 import { addToLibrary } from './addToLibrary';
 import { standardizeDataFromLocalStorage } from './standardizeDataFromAPI';
+import { openPlayer } from './playerForTrailer';
 
 async function handleMovieCardClick(e) {
   e.preventDefault();
@@ -30,9 +31,9 @@ export function openModal() {
 export function addEventListenerToModal(e) {
   const closeBtn = document.querySelector('.close-modal-btn');
   refs.backdropRef.addEventListener('click', closeBackdropClick);
+  refs.backdropRef.addEventListener('click', openPlayer);
   closeBtn.addEventListener('click', closeModal);
   refs.body.addEventListener('keydown', onKeyPress);
-  refs.backdropRef.addEventListener('click', handleBackdropClick);
 }
 
 refs.galleryRef.addEventListener('click', handleMovieCardClick);
