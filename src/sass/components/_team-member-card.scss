@@ -21,7 +21,7 @@
 
     .team-member__text {
         margin-bottom: 16px;
-
+        color: $blackColor;
         font-size: 16px;
         line-height: 1.19;
         text-align: center;
@@ -50,13 +50,15 @@
 }
 
 .team-social__icon {
-    width: 20px;
-    height: 20px;
-    fill: $orangeColor;
+    font-size: 20px;
+    color: $orangeColor;
     @include transition(fill);
 
     .team-social__link:hover &,
     .team-social__link:focus & {
-        fill: $whiteColor;
+        color: $whiteColor;
     }
+}
+.swiper-slide {
+    width: 50%;
 }
