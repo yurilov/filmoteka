@@ -34,6 +34,7 @@ function openHome(e) {
     svgColor: '#FF6B08',
   });
 
+  refs.moviesContainerRef.innerHTML = '';
   refs.headerRef.classList.add('header-home');
   refs.headerRef.classList.remove('header-library');
   refs.searchRef.classList.remove('visually-hidden');
