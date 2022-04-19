@@ -108,13 +108,10 @@
   }
 }
 
-// попытка img вписать в div чтобы не сильно резало низ картинки
-// .movie__img {
-//   margin-left: 50%;
-//   margin-top: 62%;
-//   height: auto;
-//   transform: translate(-50%, -50%);
-// }
+.movie__img {
+  cursor: pointer;
+  display: block;
+}
 
 .modal-poster {
   display: block;
