@@ -3,6 +3,7 @@ import { refs } from './getRefs';
 import { fetchFullMovieInfo } from './API/APIRequests';
 import { closeModal, onKeyPress, closeBackdropClick } from './modalEsc';
 import { addToLibrary } from './addToLibrary';
+import { standardizeDataFromLocalStorage } from './standardizeDataFromAPI';
 
 async function handleMovieCardClick(e) {
   e.preventDefault();
@@ -12,8 +13,8 @@ async function handleMovieCardClick(e) {
   openModal();
   const id = e.target.dataset.id;
   const data = await fetchFullMovieInfo(id);
-
-  const modalMarkup = renderMovieModal(data);
+  const standadizedData = standardizeDataFromLocalStorage(data);
+  const modalMarkup = renderMovieModal(standadizedData);
   refs.backdropRef.innerHTML = '';
 
   refs.backdropRef.append(modalMarkup);
