@@ -1,30 +1,34 @@
 import { refs } from './getRefs';
 import { standardizeDataFromLocalStorage } from './standardizeDataFromAPI';
 import { renderCardMovieMyLibrary } from './renderMovieCard';
-import {addWithoutDuplication} from './queuesWithoutDuplication';
 
 let localData = {};
-let type = '';
-let movies = [];
-let localKey = '';
+let activeType = '';
+let activeMovies = [];
+let activeLocalKey = '';
+let inactiveType = '';
+let inactiveMovies = [];
+let inactiveLocalKey = '';
+let inactiveButton = null;
 
 export function addToLibrary(data) {
   addLocalData();
+  //localStorage.clear();
   const buttons = document.querySelectorAll('.modal__movie-btn');
   for (const button of buttons) {
     if (button.id === 'watchedModalBtn') {
-      movies = localData.watched;
-      type = 'watched';
+      activeMovies = localData.watched;
+      activeType = 'watched';
     } else {
-      movies = localData.queued;
-      type = 'queued';
+      activeMovies = localData.queued;
+      activeType = 'queued';
     }
 
-    const isMovieInLocalData = movies.find(movie => movie.id === data.id);
+    const isMovieInLocalData = activeMovies.find(movie => movie.id === data.id);
     if (isMovieInLocalData) {
-      button.textContent = 'Delete from ' + type;
+      button.textContent = 'Delete from ' + activeType;
     } else {
-      button.textContent = 'Add to ' + type;
+      button.textContent = 'Add to ' + activeType;
     }
     button.addEventListener('click', onAddOrDelete);
   }
@@ -34,30 +38,37 @@ export function addToLibrary(data) {
     addLocalData();
 
     if (this.id === 'watchedModalBtn') {
-      movies = localData.watched;
-      type = 'watched';
-      localKey = 'movieWatched';
+      activeMovies = localData.watched;
+      activeType = 'watched';
+      activeLocalKey = 'movieWatched';
+      inactiveMovies = localData.queued;
+      inactiveType = 'queued';
+      inactiveLocalKey = 'movieQueued';
+      inactiveButton = document.querySelector('#queueModalBtn');
     } else {
-      movies = localData.queued;
-      type = 'queued';
-      localKey = 'movieQueued';
+      activeMovies = localData.queued;
+      activeType = 'queued';
+      activeLocalKey = 'movieQueued';
+      inactiveMovies = localData.watched;
+      inactiveType = 'watched';
+      inactiveLocalKey = 'movieWatched';
+      inactiveButton = document.querySelector('#watchedModalBtn');
     }
 
-    const isMovieInLocalData = movies.find(movie => movie.id === data.id);
-    if (!isMovieInLocalData) {
-      this.textContent = 'Add to ' + type;
-      movies.push(data);
-      localStorage.setItem(localKey, JSON.stringify(movies));
-      this.textContent = 'Delete from ' + type;
-    }
+    const isMovieInLocalData = activeMovies.find(movie => movie.id === data.id);
     if (isMovieInLocalData) {
-      this.textContent = 'Delete from ' + type;
-      const filteredMoviesArray = movies.filter(movie => movie.id !== data.id);
-      localStorage.setItem(localKey, JSON.stringify(filteredMoviesArray));
-      this.textContent = 'Add to ' + type;
+      const filteredMoviesArray = activeMovies.filter(movie => movie.id !== data.id);
+      localStorage.setItem(activeLocalKey, JSON.stringify(filteredMoviesArray));
+      this.textContent = 'Add to ' + activeType;
+    } else {
+      activeMovies.push(data);
+      localStorage.setItem(activeLocalKey, JSON.stringify(activeMovies));
+      this.textContent = 'Delete from ' + activeType;
+      const filteredMoviesArray = inactiveMovies.filter(movie => movie.id !== data.id);
+      localStorage.setItem(inactiveLocalKey, JSON.stringify(filteredMoviesArray));
+      inactiveButton.textContent = 'Add to ' + inactiveType;
     }
   }
-  addWithoutDuplication(data);
 }
 
 export function addLocalData() {
