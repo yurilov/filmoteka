@@ -120,4 +120,4 @@ const e=document.getElementById("checkbox-theme-switcher");function t(){"true"==
 },{"./API/APIRequests":"t0YN","./getRefs":"qJUB"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/handleSearchInput"),require("./js/theme-switcher"),require("./js/renderHomeGalleryMovie"),require("./js/renderMyLibraryGallery"),require("./js/openModal"),require("./js/sortByGenre");var e=require("./js/pagination");require("./js/clickingLogo"),require("./js/playerForTrailer");var r=require("notiflix/build/notiflix-loading-aio");r.Loading.hourglass("Loading...",{svgColor:"#FF6B08"}),setTimeout(()=>{r.Loading.remove()},1500),(0,e.trendingPagination)();
 },{"./sass/main.scss":"clu1","./js/handleSearchInput":"gb5X","./js/theme-switcher":"keXy","./js/renderHomeGalleryMovie":"BMdG","./js/renderMyLibraryGallery":"xuBv","./js/openModal":"ItER","./js/sortByGenre":"mE1B","./js/pagination":"o8lo","./js/clickingLogo":"ZwFx","./js/playerForTrailer":"Oafu","notiflix/build/notiflix-loading-aio":"FqPt"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka/src.853926b6.js.map
+//# sourceMappingURL=/filmoteka/src.64c83abc.js.map
