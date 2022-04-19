@@ -25,7 +25,7 @@ async function handleSearchInput(e) {
     } else {
       refs.moviesContainerRef.innerHTML = '';
     }
-  });
+  }).catch(e => console.log(e));
   
   const myPagination = new Pagination('pagination', {
         totalItems: 5000,
