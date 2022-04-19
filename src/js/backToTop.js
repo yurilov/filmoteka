@@ -1,18 +1,22 @@
-// const { JSDOM } = require('jsdom');
-// const { window } = new JSDOM('');
-// const $ = require('jquery')(window);
+import { refs } from './getRefs';
 
-// const btn = $('#back-to-top');
+window.onscroll = function () {
+  scrollFunction();
+};
 
-// $(window).on('scroll', function () {
-//   if ($(window).scrollTop() > 300) {
-//     btn.addClass('show');
-//   } else {
-//     btn.removeClass('show');
-//   }
-// });
+function scrollFunction() {
+  if (document.body.scrollTop > 1400 || document.documentElement.scrollTop > 1400) {
+    refs.backToTopRef.classList.add('show');
+  } else {
+    refs.backToTopRef.classList.remove('show');
+  }
+}
 
-// btn.on('click', function (e) {
-//   e.preventDefault();
-//   $('html, body').animate({ scrollTop: 0 }, '300');
-// });
+refs.backToTopRef.addEventListener('click', topFunction);
+
+function topFunction() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+}

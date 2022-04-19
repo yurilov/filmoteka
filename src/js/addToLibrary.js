@@ -21,7 +21,7 @@ export function addToLibrary(data) {
       activeType = 'watched';
     } else {
       activeMovies = localData.queued;
-      activeType = 'queued';
+      activeType = 'queue';
     }
 
     const isMovieInLocalData = activeMovies.find(movie => movie.id === data.id);
@@ -42,12 +42,12 @@ export function addToLibrary(data) {
       activeType = 'watched';
       activeLocalKey = 'movieWatched';
       inactiveMovies = localData.queued;
-      inactiveType = 'queued';
+      inactiveType = 'queue';
       inactiveLocalKey = 'movieQueued';
       inactiveButton = document.querySelector('#queueModalBtn');
     } else {
       activeMovies = localData.queued;
-      activeType = 'queued';
+      activeType = 'queue';
       activeLocalKey = 'movieQueued';
       inactiveMovies = localData.watched;
       inactiveType = 'watched';

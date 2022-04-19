@@ -1,7 +1,7 @@
 import { refs } from '../getRefs';
 import { teamInfo } from './teamInfo';
 import { renderTeamMemberCard } from './renderTeamMemberCards';
-import { openModal, addEventListenerToModal } from '../openModal';
+import { openModal } from '../openModal';
 // import { closeModal } from '../modalEsc';
 
 function handleFooterBtnClick(e) {
@@ -11,7 +11,6 @@ function handleFooterBtnClick(e) {
   refs.backdropRef.innerHTML = '';
 
   refs.backdropRef.insertAdjacentHTML('beforeend', memberCards);
-  addEventListenerToModal();
 }
 
 refs.footerBtnRef.addEventListener('click', handleFooterBtnClick);
