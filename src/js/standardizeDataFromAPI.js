@@ -8,7 +8,7 @@ export function standardizeDataFromAPI(results) {
   if (poster_path) {
     poster_link = `https://image.tmdb.org/t/p/original${poster_path}`;
   } else {
-    poster_link = 'https://i.stack.imgur.com/mwFzF.png';
+    poster_link = 'https://blankposter.com/wp-content/uploads/2021/11/Andrea_Busi_Wack-1-860x1204.jpg';
   }
 
   const rating = vote_average.toFixed(1);
@@ -40,7 +40,7 @@ export function standardizeDataFromLocalStorage(results) {
   if (poster_path !== null) {
     poster_link = `https://image.tmdb.org/t/p/original${poster_path}`;
   } else {
-    poster_link = 'https://i.stack.imgur.com/mwFzF.png';
+    poster_link = 'https://blankposter.com/wp-content/uploads/2021/11/Andrea_Busi_Wack-1-860x1204.jpg';
   }
   const rating = vote_average.toFixed(1);
 
