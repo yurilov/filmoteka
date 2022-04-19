@@ -31,6 +31,7 @@
     "debounce": "^1.2.1",
     "notiflix": "^3.2.5",
     "nprogress": "^0.2.0",
+    "swiper": "^8.1.1",
     "tui-pagination": "^3.4.1"
   }
 }

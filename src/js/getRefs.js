@@ -11,6 +11,8 @@ export const refs = {
   jsHome: document.querySelector('.js-home'),
   jsIcon: document.querySelector('.js-icon'),
   backdropRef: document.querySelector('.backdrop, .movie-modal-wrap'),
+  footerBtnRef: document.querySelector('.footer__btn'),
+  backToTopRef: document.querySelector('.backToTop'),
   // currentPage: document.querySelector('.current-page'),
   // prevPage: document.querySelector('.prev-page'),
   // nextPage: document.querySelector('.next-page'),

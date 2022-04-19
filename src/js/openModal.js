@@ -4,6 +4,7 @@ import { fetchFullMovieInfo } from './API/APIRequests';
 import { closeModal, onKeyPress, closeBackdropClick } from './modalEsc';
 import { addToLibrary } from './addToLibrary';
 import { standardizeDataFromLocalStorage } from './standardizeDataFromAPI';
+import { openPlayer } from './playerForTrailer';
 
 async function handleMovieCardClick(e) {
   e.preventDefault();
@@ -22,14 +23,15 @@ async function handleMovieCardClick(e) {
   addToLibrary(data);
 }
 
-function openModal() {
+export function openModal() {
   refs.backdropRef.classList.toggle('is-hidden');
   refs.body.classList.add('modal-is-open');
 }
 
-function addEventListenerToModal(e) {
+export function addEventListenerToModal(e) {
   const closeBtn = document.querySelector('.close-modal-btn');
   refs.backdropRef.addEventListener('click', closeBackdropClick);
+  refs.backdropRef.addEventListener('click', openPlayer);
   closeBtn.addEventListener('click', closeModal);
   refs.body.addEventListener('keydown', onKeyPress);
 }

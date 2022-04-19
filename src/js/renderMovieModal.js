@@ -50,7 +50,7 @@ export function renderMovieModal(data) {
             </button>
         </div>
         </div>
-        <button type="button" class="close-modal-btn" data-action="close-modal" id="close">
+        <button type="button" class="close-modal-btn js-close-modal" data-action="close-modal" id="close">
             <span class="material-icons" width="14" height="14">close</span>
         </button>
       </div>

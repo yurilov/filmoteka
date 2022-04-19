@@ -5,7 +5,7 @@ import { renderCardMovieMyLibrary } from './renderMovieCard';
 const body = document.querySelector('body');
 
 export function closeModal() {
-  const closeBtn = document.querySelector('.close-modal-btn');
+  const closeBtn = document.querySelector('.js-close-modal');
   closeBtn.removeEventListener('click', closeModal);
   refs.body.removeEventListener('keydown', onKeyPress);
   refs.body.classList.remove('modal-is-open');
