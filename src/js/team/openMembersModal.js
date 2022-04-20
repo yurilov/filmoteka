@@ -3,7 +3,7 @@ import { teamInfo } from './teamInfo';
 import { renderTeamMemberCard } from './renderTeamMemberCards';
 import { openModal } from '../openModal';
 // import Swiper JS
-import Swiper from 'swiper';
+// import Swiper from 'swiper';
 // import Swiper styles
 // import 'swiper/css/bundle';
 
@@ -18,6 +18,7 @@ function handleFooterBtnClick(e) {
   refs.backdropRef.insertAdjacentHTML('beforeend', swiperMarkup);
   const swiper = new Swiper('.swiper', {
     effect: 'coverflow',
+    loop: true,
     grabCursor: true,
     centeredSlides: true,
     slidesPerView: 'auto',
@@ -30,6 +31,8 @@ function handleFooterBtnClick(e) {
     },
     pagination: {
       el: '.swiper-pagination',
+      clickable: true,
+      dynamicBullets: true,
     },
   });
 }
@@ -37,7 +40,7 @@ function handleFooterBtnClick(e) {
 refs.footerBtnRef.addEventListener('click', handleFooterBtnClick);
 
 function renderSwiper() {
-  const memberCards = teamInfo.map(member => renderTeamMemberCard(member)).join('');
+  const memberCards = shuffle(teamInfo.map(member => renderTeamMemberCard(member))).join('');
   const markup = `<div class="swiper">
                     <div class="swiper-wrapper">
                       ${memberCards}
@@ -71,4 +74,8 @@ function closeBackdropClick(e) {
   } else {
     return;
   }
+}
+
+function shuffle(array) {
+  return array.sort(() => Math.random() - 0.5);
 }
