@@ -32,9 +32,7 @@ export function trendingPagination(page = 1) {
   });
 
   pagination.on('beforeMove', async evt => {
-    const LOCAL_KEY = 'currentPage';
     const currentPage = (fetchTrending.page = evt.page);
-    localStorage.setItem(LOCAL_KEY, currentPage);
     const movies = await fetchTrending(currentPage).then(movie => {
       const results = movie.results;
       const standardizedResults = results.map(result => standardizeDataFromAPI(result));
