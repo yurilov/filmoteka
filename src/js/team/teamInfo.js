@@ -17,7 +17,7 @@ export const teamInfo = [
   {
     name: 'Madina Konurbaeva',
     github: 'https://github.com/Konurbaeva',
-    linkedin: 'https://www.linkedin.com/in/',
+    linkedin: 'https://www.linkedin.com/in/madina-jampasee/',
     role: 'Developer',
     img: 'https://ca.slack-edge.com/T02LX8HRJFJ-U02MW6J6UUV-61aa65012da2-512',
   },
