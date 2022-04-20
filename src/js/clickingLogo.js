@@ -49,8 +49,15 @@ function openHome(e) {
   for (let i = 0; i < libraryBtns.length; i++) {
     libraryBtns[i].classList.remove('header-library__btn--active');
   }
-  renderTrending();
-  trendingPagination();
+  const currentPage = JSON.parse(localStorage.getItem('currentPage'));
+  if (currentPage) {
+    renderTrending(currentPage);
+    trendingPagination(currentPage);
+  } else {
+    renderTrending();
+    trendingPagination();
+  }
+
   setTimeout(() => {
     Loading.remove();
   }, 500);

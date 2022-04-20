@@ -3,8 +3,8 @@ import { renderCardMovie } from './renderMovieCard';
 import { refs } from './getRefs';
 import { standardizeDataFromAPI } from './standardizeDataFromAPI';
 
-export const renderTrending = () => {
-  fetchTrending().then(movie => {
+export const renderTrending = (page = 1) => {
+  fetchTrending(page).then(movie => {
     const objDataMovie = movie;
 
     const results = objDataMovie.results;

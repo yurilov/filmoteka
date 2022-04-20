@@ -66,7 +66,7 @@ const onKeyPress = event => {
 function closeBackdropClick(e) {
   const classList = e.target.classList;
 
-  if (classList.contains('backdrop') || classList.contains('swiper-slide')) {
+  if (classList.contains('backdrop') || classList.contains('swiper')) {
     closeMembersModal();
   } else {
     return;
