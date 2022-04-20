@@ -19,5 +19,8 @@ Loading.hourglass('Loading...', {
 setTimeout(() => {
   Loading.remove();
 }, 1500);
-
-trendingPagination(currentPage);
+if(currentPage){
+  trendingPagination(currentPage);
+} else {
+  trendingPagination();
+}
