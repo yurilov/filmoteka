@@ -1,12 +1,20 @@
 .team-member {
+    width: 300px;
     background-color: $whiteColor;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
         0px 2px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 0px 0px 4px 4px;
+    border-radius: 12px;
 
     .team-member__img {
+        border-radius: 12px 12px 0 0;
         display: block;
         margin-bottom: 30px;
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        @media screen and (min-width: $desktop) {
+            
+        }
     }
 
     .team-member__title {
@@ -16,12 +24,10 @@
         font-size: 16px;
         line-height: 1.19;
         text-align: center;
-        color: $blackColor;
     }
 
     .team-member__text {
         margin-bottom: 16px;
-        color: $blackColor;
         font-size: 16px;
         line-height: 1.19;
         text-align: center;
@@ -32,20 +38,16 @@
     display: flex;
     justify-content: center;
     padding-bottom: 30px;
-
+    margin: 0 auto;
+    &__item {
+        &:not(:last-child) {
+            margin-right: 15px;
+        }
+    }
     .team-social__link {
         display: block;
-        padding: 12px;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-       @include transition(background-color);
-
-        &:hover,
-        &:focus {
-            outline: none;
-            background-color: $orangeColor;
-        }
+        // padding: 12px;
+        
     }
 }
 
@@ -59,6 +61,27 @@
         color: $whiteColor;
     }
 }
-.swiper-slide {
-    width: 50%;
+
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    margin: 0 25px;
+    @include transition(transform);
+}
+
+.swiper-slide-prev {
+        transform: perspective(600px) rotateY(15deg);
+}
+
+.swiper-slide-next {
+        transform: perspective(600px) rotateY(-15deg);
+}
+
+

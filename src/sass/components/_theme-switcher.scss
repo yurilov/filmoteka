@@ -130,4 +130,8 @@ body.dark-theme {
   &.dark-theme .backToTop i {
     color: $orangeColor;
   }
+
+  &.dark-theme .team-member {
+    background-color: $blackThemeSecondary;
+  }
 }
