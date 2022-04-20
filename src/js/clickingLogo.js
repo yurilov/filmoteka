@@ -1,6 +1,7 @@
 import { refs } from './getRefs';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { renderTrending } from './renderHomeGalleryMovie';
+import { trendingPagination } from './pagination';
 refs.jsIcon.addEventListener('click', openHome);
 refs.jsHome.addEventListener('click', openHome);
 refs.jsLibrary.addEventListener('click', openGallery);
@@ -19,7 +20,6 @@ function openGallery(e) {
   refs.myLibraryContainerRef.classList.remove('visually-hidden');
   refs.jsHome.classList.remove('current');
   refs.jsLibrary.classList.add('current');
-  document.querySelector('#pagination').classList.add('visually-hidden');
   document.querySelector('#genres-container').classList.add('visually-hidden');
   document.querySelector('.header-library__btn--watched').click();
 
@@ -45,7 +45,12 @@ function openHome(e) {
   refs.jsLibrary.classList.remove('current');
   document.querySelector('#pagination').classList.remove('visually-hidden');
   document.querySelector('#genres-container').classList.remove('visually-hidden');
+  const libraryBtns = document.querySelectorAll('.header-library__btn');
+  for (let i = 0; i < libraryBtns.length; i++) {
+    libraryBtns[i].classList.remove('header-library__btn--active');
+  }
   renderTrending();
+  trendingPagination();
   setTimeout(() => {
     Loading.remove();
   }, 500);

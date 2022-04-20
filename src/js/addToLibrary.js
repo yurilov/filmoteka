@@ -1,6 +1,8 @@
 import { refs } from './getRefs';
 import { standardizeDataFromLocalStorage } from './standardizeDataFromAPI';
 import { renderCardMovieMyLibrary } from './renderMovieCard';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import Pagination from 'tui-pagination';
 
 let localData = {};
 let activeType = '';
@@ -88,7 +90,7 @@ watchedBtnRef.addEventListener('click', showSaved);
 queueBtnRef.addEventListener('click', showSaved);
 
 // ФУНКЦІЯ ВІДОБРАЖЕННЯ ПЕРЕГЛЯНУТИХ ФІЛЬМІВ В "БІБЛІОТЕЦІ"
-function showSaved() {
+export function showSaved() {
   changeActiveBtnColor(this);
   addLocalData();
   let savedMovies = [];
@@ -100,10 +102,60 @@ function showSaved() {
   } else {
     savedMovies = localData.queued;
   }
-  const standardizedResults = savedMovies.map(data => standardizeDataFromLocalStorage(data));
+
+  let page = 1;
+  let newTotalItems = savedMovies.length;
+  const newItemsPerPage = 20;
+  let moviesOnPage = savedMovies.slice(0, newItemsPerPage);
+
+  const standardizedResults = moviesOnPage.map(data => standardizeDataFromLocalStorage(data));
   const renderSaved = standardizedResults.map(movie => renderCardMovieMyLibrary(movie));
   refs.myLibraryContainerRef.innerHTML = '';
   refs.myLibraryContainerRef.append(...renderSaved);
+
+  if (newTotalItems < 1) {
+    document.querySelector('#pagination').classList.add('visually-hidden');
+  } else {
+    document.querySelector('#pagination').classList.remove('visually-hidden');
+  }
+
+  const libPagination = new Pagination('pagination', {
+    totalItems: newTotalItems,
+    itemsPerPage: newItemsPerPage,
+    visiblePages: 5,
+    page: 1,
+    usageStatistics: false,
+    template: {
+      page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+      currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+      moveButton:
+        '<a href="#" class="tui-page-btn tui-{{type}}">' +
+        '<span class="tui-ico-{{type}}">{{type}}</span>' +
+        '</a>',
+      disabledMoveButton:
+        '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+        '<span class="tui-ico-{{type}}">{{type}}</span>' +
+        '</span>',
+      moreButton:
+        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+        '<span class="tui-ico-ellip">...</span>' +
+        '</a>',
+    },
+  });
+
+  libPagination.on('afterMove', async evt => {
+    page = evt.page;
+    const moviesOnPage = savedMovies.slice((page - 1) * newItemsPerPage, page * newItemsPerPage);
+    const standardizedResults = moviesOnPage.map(data => standardizeDataFromLocalStorage(data));
+    const renderSaved = standardizedResults.map(movie => renderCardMovieMyLibrary(movie));
+    refs.myLibraryContainerRef.innerHTML = '';
+    refs.myLibraryContainerRef.append(...renderSaved);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    Loading.hourglass('Loading...', {
+      svgColor: '#FF6B08',
+    });
+    Loading.remove(800);
+  });
 }
 
 // ФУНКЦІЯ ЗМІНИ КОЛЬОРУ АКТИВНОЇ КНОПКИ В "БІБЛІОТЕЦІ"
