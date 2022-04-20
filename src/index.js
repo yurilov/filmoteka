@@ -11,7 +11,7 @@ import './js/clickingLogo';
 import './js/playerForTrailer';
 import './js/backToTop';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
-const currentPage = localStorage.getItem('currentPage';
+const currentPage = localStorage.getItem('currentPage');
 Loading.hourglass('Loading...', {
   svgColor: '#FF6B08',
 });
