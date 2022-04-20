@@ -23,4 +23,5 @@ export const renderTrending = (page = 1) => {
     // refs.myLibraryContainerRef.append(...movieCard);
   });
 };
-renderTrending();
+let currentPage = localStorage.getItem('currentPage');
+renderTrending(currentPage);

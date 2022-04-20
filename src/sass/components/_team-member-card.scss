@@ -77,12 +77,16 @@
     @include transition(transform);
 }
 
-.swiper-slide-prev {
-        transform: perspective(600px) rotateY(15deg);
-}
+.swiper-pagination-bullet{
+width: 20px;
+height: 20px;
+line-height: 20px;
+font-size: 14px;
+background-color: $whiteColor;
 
-.swiper-slide-next {
-        transform: perspective(600px) rotateY(-15deg);
+&-active-main {
+    background-color: $orangeColor;
+}
 }
 
 
